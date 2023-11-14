@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html class="inbenta-bot--chrome-118" style="height: auto;"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SIA - Sistema de Informações Acadêmicas</title>
+    <link rel="icon" type="image/png" href="/sianet/Content/SiteNovo/dist/img/icones/ico-ibmec.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <script nonce="sha256-89EFA17361E061D4870465A2334044D67B6AFFE7DD0CBC59CEABB8E55ADD5058" src="/sianet/Content/SiteNovo/plugins/jquery/jquery.min.js"></script>
+    <!-- Elastic APM RUM-->
+    <script src="script.js" crossorigin=""></script>
+    <script>
+        elasticApm.init({
+            serviceName: 'SIA Front',
+            environment: 'production',
+            serverUrl: 'https://yduqs.apm.eastus.azure.elastic-cloud.com'
+        })
+        const traceparent = ['00', elasticApm.serviceFactory.getService('TransactionService').currentTransaction.traceId,
+            elasticApm.serviceFactory.getService('TransactionService').currentTransaction.id, '01'].join('-');
+        document.cookie = ['traceparent', traceparent].join(' = ');
+    </script>
+
+    <link href="styles.css" rel="stylesheet">
+
+
+    <link href="styles.css" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+
+
+    <script src="script.js"></script>
+
+    <link href="styles.css" rel="stylesheet">
+
+
+    <script>
+        var fetchSvg = (image) => {
+            fetch(image.src)
+                .then((response) => response.text())
+                .then((response) => {
+                    var span = document.createElement('span');
+                    span.innerHTML = response;
+                    var inlineSvg = span.getElementsByTagName('svg')[0];
+                    image.parentNode.replaceChild(inlineSvg, image);
+                    return true;
+                });
+        };
+    </script>
+
+<style>.swal2-popup.swal2-toast{box-sizing:border-box;grid-column:1/4!important;grid-row:1/4!important;grid-template-columns:1fr 99fr 1fr;padding:1em;overflow-y:hidden;background:#fff;box-shadow:0 0 1px rgba(0,0,0,.075),0 1px 2px rgba(0,0,0,.075),1px 2px 4px rgba(0,0,0,.075),1px 3px 8px rgba(0,0,0,.075),2px 4px 16px rgba(0,0,0,.075);pointer-events:all}.swal2-popup.swal2-toast>*{grid-column:2}.swal2-popup.swal2-toast .swal2-title{margin:.5em 1em;padding:0;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-loading{justify-content:center}.swal2-popup.swal2-toast .swal2-input{height:2em;margin:.5em;font-size:1em}.swal2-popup.swal2-toast .swal2-validation-message{font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{grid-column:3/3;grid-row:1/99;align-self:center;width:.8em;height:.8em;margin:0;font-size:2em}.swal2-popup.swal2-toast .swal2-html-container{margin:.5em 1em;padding:0;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-html-container:empty{padding:0}.swal2-popup.swal2-toast .swal2-loader{grid-column:1;grid-row:1/99;align-self:center;width:2em;height:2em;margin:.25em}.swal2-popup.swal2-toast .swal2-icon{grid-column:1;grid-row:1/99;align-self:center;width:2em;min-width:2em;height:2em;margin:0 .5em 0 0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{justify-content:flex-start;height:auto;margin:0;margin-top:.5em;padding:0 .5em}.swal2-popup.swal2-toast .swal2-styled{margin:.25em .5em;padding:.4em .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:grid;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;box-sizing:border-box;grid-template-areas:"top-start     top            top-end" "center-start  center         center-end" "bottom-start  bottom-center  bottom-end";grid-template-rows:minmax(-webkit-min-content,auto) minmax(-webkit-min-content,auto) minmax(-webkit-min-content,auto);grid-template-rows:minmax(min-content,auto) minmax(min-content,auto) minmax(min-content,auto);height:100%;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-bottom-start,.swal2-container.swal2-center-start,.swal2-container.swal2-top-start{grid-template-columns:minmax(0,1fr) auto auto}.swal2-container.swal2-bottom,.swal2-container.swal2-center,.swal2-container.swal2-top{grid-template-columns:auto minmax(0,1fr) auto}.swal2-container.swal2-bottom-end,.swal2-container.swal2-center-end,.swal2-container.swal2-top-end{grid-template-columns:auto auto minmax(0,1fr)}.swal2-container.swal2-top-start>.swal2-popup{align-self:start}.swal2-container.swal2-top>.swal2-popup{grid-column:2;align-self:start;justify-self:center}.swal2-container.swal2-top-end>.swal2-popup,.swal2-container.swal2-top-right>.swal2-popup{grid-column:3;align-self:start;justify-self:end}.swal2-container.swal2-center-left>.swal2-popup,.swal2-container.swal2-center-start>.swal2-popup{grid-row:2;align-self:center}.swal2-container.swal2-center>.swal2-popup{grid-column:2;grid-row:2;align-self:center;justify-self:center}.swal2-container.swal2-center-end>.swal2-popup,.swal2-container.swal2-center-right>.swal2-popup{grid-column:3;grid-row:2;align-self:center;justify-self:end}.swal2-container.swal2-bottom-left>.swal2-popup,.swal2-container.swal2-bottom-start>.swal2-popup{grid-column:1;grid-row:3;align-self:end}.swal2-container.swal2-bottom>.swal2-popup{grid-column:2;grid-row:3;justify-self:center;align-self:end}.swal2-container.swal2-bottom-end>.swal2-popup,.swal2-container.swal2-bottom-right>.swal2-popup{grid-column:3;grid-row:3;align-self:end;justify-self:end}.swal2-container.swal2-grow-fullscreen>.swal2-popup,.swal2-container.swal2-grow-row>.swal2-popup{grid-column:1/4;width:100%}.swal2-container.swal2-grow-column>.swal2-popup,.swal2-container.swal2-grow-fullscreen>.swal2-popup{grid-row:1/4;align-self:stretch}.swal2-container.swal2-no-transition{transition:none!important}.swal2-popup{display:none;position:relative;box-sizing:border-box;grid-template-columns:minmax(0,100%);width:32em;max-width:100%;padding:0 0 1.25em;border:none;border-radius:5px;background:#fff;color:#545454;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-title{position:relative;max-width:100%;margin:0;padding:.8em 1em 0;color:inherit;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;box-sizing:border-box;flex-wrap:wrap;align-items:center;justify-content:center;width:auto;margin:1.25em auto 0;padding:0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-loader{display:none;align-items:center;justify-content:center;width:2.2em;height:2.2em;margin:0 1.875em;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border-width:.25em;border-style:solid;border-radius:100%;border-color:#2778c4 transparent #2778c4 transparent}.swal2-styled{margin:.3125em;padding:.625em 1.1em;transition:box-shadow .1s;box-shadow:0 0 0 3px transparent;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#7066e0;color:#fff;font-size:1em}.swal2-styled.swal2-confirm:focus{box-shadow:0 0 0 3px rgba(112,102,224,.5)}.swal2-styled.swal2-deny{border:0;border-radius:.25em;background:initial;background-color:#dc3741;color:#fff;font-size:1em}.swal2-styled.swal2-deny:focus{box-shadow:0 0 0 3px rgba(220,55,65,.5)}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#6e7881;color:#fff;font-size:1em}.swal2-styled.swal2-cancel:focus{box-shadow:0 0 0 3px rgba(110,120,129,.5)}.swal2-styled.swal2-default-outline:focus{box-shadow:0 0 0 3px rgba(100,150,200,.5)}.swal2-styled:focus{outline:0}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1em 0 0;padding:1em 1em 0;border-top:1px solid #eee;color:inherit;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;grid-column:auto!important;overflow:hidden;border-bottom-right-radius:5px;border-bottom-left-radius:5px}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:2em auto 1em}.swal2-close{z-index:2;align-items:center;justify-content:center;width:1.2em;height:1.2em;margin-top:0;margin-right:0;margin-bottom:-1.2em;padding:0;overflow:hidden;transition:color .1s,box-shadow .1s;border:none;border-radius:5px;background:0 0;color:#ccc;font-family:serif;font-family:monospace;font-size:2.5em;cursor:pointer;justify-self:end}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close:focus{outline:0;box-shadow:inset 0 0 0 3px rgba(100,150,200,.5)}.swal2-close::-moz-focus-inner{border:0}.swal2-html-container{z-index:1;justify-content:center;margin:1em 1.6em .3em;padding:0;overflow:auto;color:inherit;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word;word-break:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em 2em 3px}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:auto;transition:border-color .1s,box-shadow .1s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px transparent;color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(100,150,200,.5)}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em 2em 3px;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-file{width:75%;margin-right:auto;margin-left:auto;background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{flex-shrink:0;margin:0 .4em}.swal2-input-label{display:flex;justify-content:center;margin:1em auto 0}.swal2-validation-message{align-items:center;justify-content:center;margin:1em 0 0;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:"!";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:2.5em auto .6em;border:.25em solid transparent;border-radius:50%;border-color:#000;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-warning.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-warning.swal2-icon-show .swal2-icon-content{-webkit-animation:swal2-animate-i-mark .5s;animation:swal2-animate-i-mark .5s}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-info.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-info.swal2-icon-show .swal2-icon-content{-webkit-animation:swal2-animate-i-mark .8s;animation:swal2-animate-i-mark .8s}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-question.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-question.swal2-icon-show .swal2-icon-content{-webkit-animation:swal2-animate-question-mark .8s;animation:swal2-animate-question-mark .8s}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{flex-wrap:wrap;align-items:center;max-width:100%;margin:1.25em auto;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;flex-shrink:0;width:2em;height:2em;border-radius:2em;background:#2778c4;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#2778c4}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;flex-shrink:0;width:2.5em;height:.4em;margin:0 -1px;background:#2778c4}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{margin-right:initial;margin-left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@-webkit-keyframes swal2-animate-question-mark{0%{transform:rotateY(-360deg)}100%{transform:rotateY(0)}}@keyframes swal2-animate-question-mark{0%{transform:rotateY(-360deg)}100%{transform:rotateY(0)}}@-webkit-keyframes swal2-animate-i-mark{0%{transform:rotateZ(45deg);opacity:0}25%{transform:rotateZ(-25deg);opacity:.4}50%{transform:rotateZ(15deg);opacity:.8}75%{transform:rotateZ(-5deg);opacity:1}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-i-mark{0%{transform:rotateZ(45deg);opacity:0}25%{transform:rotateZ(-25deg);opacity:.4}50%{transform:rotateZ(15deg);opacity:.8}75%{transform:rotateZ(-5deg);opacity:1}100%{transform:rotateX(0);opacity:1}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{background-color:transparent!important;pointer-events:none}body.swal2-no-backdrop .swal2-container .swal2-popup{pointer-events:all}body.swal2-no-backdrop .swal2-container .swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{box-sizing:border-box;width:360px;max-width:100%;background-color:transparent;pointer-events:none}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}</style><script type="text/javascript" src="https://sdk.inbenta.io/chatbot/1.74.0/inbenta-chatbot-sdk.js" integrity="sha384-Kn9KpPNQOSQcEDxcWUmpkgpq58QU8TItUKHIvrC0cqUFkduK9VuGhA+RFCqwYMNn" crossorigin="anonymous"></script><style>body .inbenta.brand-ibmec .inbenta-bot__launcher{background-color:#002555 !important}body .inbenta.brand-ibmec .inbenta-bot__powered::before{background-color:#002555}body .inbenta.brand-ibmec .inbenta-bot__chat__header,body .inbenta.brand-ibmec .inbenta-bot__bubble__header{background-color:#002555 !important}body .inbenta.brand-ibmec .inbenta-bot__chat .footer__form__button,body .inbenta.brand-ibmec .inbenta-bot__bubble .footer__form__button{color:#002555 !important}body .inbenta.brand-ibmec .inbenta-bot__chat .inbenta-bot-rating__content__buttons .inbenta-bot-button .inbenta-bot-icon{color:#002555}body .inbenta.brand-ibmec .inbenta-bot__bubble__footer .inbenta-bot-rating__content__buttons .inbenta-bot-button{background:#002555}body .inbenta.brand-ibmec .inbenta-bot__chat__header,body .inbenta.brand-ibmec .inbenta-bot__bubble__header{background-color:#002555}body .inbenta.brand-ibmec .inbenta-bot__chat__header .header__title__image,body .inbenta.brand-ibmec .inbenta-bot__bubble__header .header__title__image{background-image:url(https://static-or02.inbenta.com/c5723b6bb43d2f7a9cb883e4665443924c16587013e577e8e0f31c680b5cf861/sdk/images/logo-ibmec.png)}body .inbenta.brand-ibmec .inbenta-bot__chat .inbenta-bot-icon--avatar,body .inbenta.brand-ibmec .inbenta-bot__bubble .inbenta-bot-icon--avatar{background-image:url(https://static-or02.inbenta.com/c5723b6bb43d2f7a9cb883e4665443924c16587013e577e8e0f31c680b5cf861/sdk/images/logo-ibmec.png)}body .inbenta.brand-wyden .inbenta-bot__launcher{background-color:#ff1a00 !important}body .inbenta.brand-wyden .inbenta-bot__powered::before{background-color:#ff1a00}body .inbenta.brand-wyden .inbenta-bot__chat__header,body .inbenta.brand-wyden .inbenta-bot__bubble__header{background-color:#ff1a00 !important}body .inbenta.brand-wyden .inbenta-bot__chat .footer__form__button,body .inbenta.brand-wyden .inbenta-bot__bubble .footer__form__button{color:#ff1a00 !important}body .inbenta.brand-wyden .inbenta-bot__chat .inbenta-bot-rating__content__buttons .inbenta-bot-button .inbenta-bot-icon{color:#ff1a00}body .inbenta.brand-wyden .inbenta-bot__bubble__footer .inbenta-bot-rating__content__buttons .inbenta-bot-button{background:#ff1a00}body .inbenta.brand-wyden .inbenta-bot__chat .inbenta-bot-icon--avatar{background-size:100%}body .inbenta.brand-wyden .inbenta-bot__chat__header,body .inbenta.brand-wyden .inbenta-bot__bubble__header{background-color:#ff1a00}body .inbenta.brand-wyden .inbenta-bot__chat__header .header__title__image,body .inbenta.brand-wyden .inbenta-bot__bubble__header .header__title__image{background-image:url(https://static-or02.inbenta.com/c5723b6bb43d2f7a9cb883e4665443924c16587013e577e8e0f31c680b5cf861/sdk/images/logo-wyden.jpeg)}body .inbenta.brand-wyden .inbenta-bot__chat .inbenta-bot-icon--avatar,body .inbenta.brand-wyden .inbenta-bot__bubble .inbenta-bot-icon--avatar{background-image:url(https://static-or02.inbenta.com/c5723b6bb43d2f7a9cb883e4665443924c16587013e577e8e0f31c680b5cf861/sdk/images/logo-wyden.jpeg)}body .inbenta.brand-estacio .inbenta-bot__launcher,body .inbenta.brand-damasio .inbenta-bot__launcher{background-color:#008eaa !important}body .inbenta.brand-estacio .inbenta-bot__powered::before,body .inbenta.brand-damasio .inbenta-bot__powered::before{background-color:#008eaa}body .inbenta.brand-estacio .inbenta-bot__chat__header,body .inbenta.brand-estacio .inbenta-bot__bubble__header,body .inbenta.brand-damasio .inbenta-bot__chat__header,body .inbenta.brand-damasio .inbenta-bot__bubble__header{background-color:#008eaa !important}body .inbenta.brand-estacio .inbenta-bot__chat .footer__form__button,body .inbenta.brand-estacio .inbenta-bot__bubble .footer__form__button,body .inbenta.brand-damasio .inbenta-bot__chat .footer__form__button,body .inbenta.brand-damasio .inbenta-bot__bubble .footer__form__button{color:#008eaa !important}body .inbenta.brand-estacio .inbenta-bot__chat .inbenta-bot-rating__content__buttons .inbenta-bot-button .inbenta-bot-icon,body .inbenta.brand-damasio .inbenta-bot__chat .inbenta-bot-rating__content__buttons .inbenta-bot-button .inbenta-bot-icon{color:#008eaa}body .inbenta.brand-estacio .inbenta-bot__bubble__footer .inbenta-bot-rating__content__buttons .inbenta-bot-button,body .inbenta.brand-damasio .inbenta-bot__bubble__footer .inbenta-bot-rating__content__buttons .inbenta-bot-button{background:#008eaa}body .inbenta.brand-estacio .inbenta-bot__launcher,body .inbenta.brand-damasio .inbenta-bot__launcher{background-color:#008eaa}body .inbenta.brand-estacio .inbenta-bot__chat__header,body .inbenta.brand-estacio .inbenta-bot__bubble__header,body .inbenta.brand-damasio .inbenta-bot__chat__header,body .inbenta.brand-damasio .inbenta-bot__bubble__header{background-color:#008eaa}body .inbenta.brand-estacio .inbenta-bot__chat__header .header__title__image,body .inbenta.brand-estacio .inbenta-bot__bubble__header .header__title__image,body .inbenta.brand-damasio .inbenta-bot__chat__header .header__title__image,body .inbenta.brand-damasio .inbenta-bot__bubble__header .header__title__image{background-image:url(https://static-or02.inbenta.com/c5723b6bb43d2f7a9cb883e4665443924c16587013e577e8e0f31c680b5cf861/sdk/images/avatar-estacio.png);border-radius:50%;background-color:#fff;background-position:unset}body .inbenta.brand-estacio .inbenta-bot__chat .inbenta-bot-icon--avatar,body .inbenta.brand-estacio .inbenta-bot__bubble .inbenta-bot-icon--avatar,body .inbenta.brand-damasio .inbenta-bot__chat .inbenta-bot-icon--avatar,body .inbenta.brand-damasio .inbenta-bot__bubble .inbenta-bot-icon--avatar{background-image:url(https://static-or02.inbenta.com/c5723b6bb43d2f7a9cb883e4665443924c16587013e577e8e0f31c680b5cf861/sdk/images/avatar-estacio.png)}body .inbenta-bot ::-webkit-scrollbar{overflow-y:scroll;display:none}body .inbenta-bot__launcher{padding:10px;min-width:60px;height:60px;right:20px !important;bottom:20px !important;border-radius:50%}body .inbenta-bot__launcher:hover{border-radius:50%;transform:scale(1.1)}body .inbenta-bot__launcher__image{background-image:url(https://static-or02.inbenta.com/c5723b6bb43d2f7a9cb883e4665443924c16587013e577e8e0f31c680b5cf861/sdk/images/chatbot-launcher.svg);width:30px;height:30px}body .inbenta-bot__launcher__text{margin-left:5px;font-size:13px !important}body .inbenta-bot__powered::before{display:block;content:"";border-radius:50%;height:60px;width:60px;background-image:url(https://static-or02.inbenta.com/c5723b6bb43d2f7a9cb883e4665443924c16587013e577e8e0f31c680b5cf861/sdk/images/chatbot-close.svg);background-repeat:no-repeat;background-position:center;background-size:48px;cursor:pointer}body .inbenta-bot__powered__link{display:none}body .inbenta-bot__chat{margin-right:15px}body .inbenta-bot__chat__body .body__wrapper__messages .messages__message--sent .messages__message__content{background:#f0f0f0}body .inbenta-bot__chat__body .body__wrapper__messages .messages__message--sent .messages__message__content__text a{color:#338295}body .inbenta-bot__chat__body .body__wrapper__messages .messages__message--sent .messages__message__content__text p{font-size:13.5px}body .inbenta-bot__chat__body .body__wrapper__messages .messages__message--received .messages__message__content .content__open-sidebubble__phrase,body .inbenta-bot__chat__body .body__wrapper__messages .messages__message--received .messages__message__content .content__open-sidebubble__icon{color:#183c6b}body .inbenta-bot__chat__body .body__wrapper__messages .messages__message--received .messages__message__content .content__buttons .inbenta-bot-button{background:#183c6b}body .inbenta-bot__chat__body .body__wrapper__messages .messages__message--received .messages__message__content .content__buttons--multiple-choise .inbenta-bot-button{color:#183c6b;background:transparent}body .inbenta-bot__chat__body .body__wrapper__messages .messages__message--received .messages__message__content .content__text p{font-size:13.5px}body .inbenta-bot__chat .messages__message__avatar{background-color:#fff !important}body .inbenta-bot__chat .inbenta-bot-icon--avatar{color:transparent !important;font-size:0 !important;background-size:cover;background-repeat:no-repeat;background-position-x:center;width:100px;height:30px;border-radius:50%}body .inbenta-bot .inbenta-bot__chat__custom-window{margin-top:42px}@media only screen and (max-width: 768px){body .inbenta-bot__bubble{max-width:90%;max-height:90%;margin:auto}}body .inbenta-bot__bubble__body .body__content-faq p{font-size:13.5px}body .inbenta-bot__chat,body .inbenta-bot__bubble{border-radius:18px 18px 0 0;opacity:.98;min-height:520px}body .inbenta-bot__chat__header,body .inbenta-bot__bubble__header{display:flex;flex-direction:row;background-size:100%;align-items:flex-start;padding:8px 16px}body .inbenta-bot__chat__header .header__title__contents,body .inbenta-bot__bubble__header .header__title__contents{display:flex;padding:7px 0 7px;align-items:center}body .inbenta-bot__chat__header .header__title__image,body .inbenta-bot__bubble__header .header__title__image{display:block;width:60px;height:60px;margin:0 20px 0 5px;background-repeat:no-repeat;background-position:center;background-size:60px;flex-shrink:0}body .inbenta-bot__chat__header .header__title__text,body .inbenta-bot__bubble__header .header__title__text{font-size:18px;line-height:1.3;font-weight:400;padding-top:0;-webkit-font-smoothing:antialiased}body .inbenta-bot__chat__header .header__actions,body .inbenta-bot__bubble__header .header__actions{align-self:flex-start}body .inbenta-bot__chat__header .header__actions__icon--reset-session,body .inbenta-bot__bubble__header .header__actions__icon--reset-session{display:none}@media only screen and (max-width: 768px){body .inbenta-bot__chat__header .header__actions__icon--reset-session,body .inbenta-bot__bubble__header .header__actions__icon--reset-session{display:block}}body .inbenta-bot .inbenta-bot-spacer{display:flex;align-items:flex-end}body .inbenta.brand-damasio .inbenta-bot__chat__custom-window{margin-top:0}</style><script charset="UTF-8" src="https://lptag.liveperson.net/tag/tag.js?site=38015180"></script><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css">.rtl { direction: rtl; } .vdp-datepicker { position: relative; text-align: left; } .vdp-datepicker * { box-sizing: border-box; } .vdp-datepicker__calendar { position: absolute; z-index: 100; background: #fff; width: 300px; border: 1px solid #ccc; } .vdp-datepicker__calendar header { display: block; line-height: 40px; } .vdp-datepicker__calendar header span { display: inline-block; text-align: center; width: 71.42857142857143%; float: left; } .vdp-datepicker__calendar header .prev, .vdp-datepicker__calendar header .next { width: 14.285714285714286%; float: left; text-indent: -10000px; position: relative; } .vdp-datepicker__calendar header .prev:after, .vdp-datepicker__calendar header .next:after { content: ''; position: absolute; left: 50%; top: 50%; -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); border: 6px solid transparent; } .vdp-datepicker__calendar header .prev:after { border-right: 10px solid #000; margin-left: -5px; } .vdp-datepicker__calendar header .prev.disabled:after { border-right: 10px solid #ddd; } .vdp-datepicker__calendar header .next:after { border-left: 10px solid #000; margin-left: 5px; } .vdp-datepicker__calendar header .next.disabled:after { border-left: 10px solid #ddd; } .vdp-datepicker__calendar header .prev:not(.disabled), .vdp-datepicker__calendar header .next:not(.disabled), .vdp-datepicker__calendar header .up:not(.disabled) { cursor: pointer; } .vdp-datepicker__calendar header .prev:not(.disabled):hover, .vdp-datepicker__calendar header .next:not(.disabled):hover, .vdp-datepicker__calendar header .up:not(.disabled):hover { background: #eee; } .vdp-datepicker__calendar .disabled { color: #ddd; cursor: default; } .vdp-datepicker__calendar .flex-rtl { display: flex; width: inherit; flex-wrap: wrap; } .vdp-datepicker__calendar .cell { display: inline-block; padding: 0 5px; width: 14.285714285714286%; height: 40px; line-height: 40px; text-align: center; vertical-align: middle; border: 1px solid transparent; } .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year { cursor: pointer; } .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover { border: 1px solid #4bd; } .vdp-datepicker__calendar .cell.selected { background: #4bd; } .vdp-datepicker__calendar .cell.selected:hover { background: #4bd; } .vdp-datepicker__calendar .cell.selected.highlighted { background: #4bd; } .vdp-datepicker__calendar .cell.highlighted { background: #cae5ed; } .vdp-datepicker__calendar .cell.highlighted.disabled { color: #a3a3a3; } .vdp-datepicker__calendar .cell.grey { color: #888; } .vdp-datepicker__calendar .cell.grey:hover { background: inherit; } .vdp-datepicker__calendar .cell.day-header { font-size: 75%; white-space: nowrap; cursor: inherit; } .vdp-datepicker__calendar .cell.day-header:hover { background: inherit; } .vdp-datepicker__calendar .month, .vdp-datepicker__calendar .year { width: 33.333%; } .vdp-datepicker__clear-button, .vdp-datepicker__calendar-button { cursor: pointer; font-style: normal; } .vdp-datepicker__clear-button.disabled, .vdp-datepicker__calendar-button.disabled { color: #999; cursor: default; } </style><link rel="stylesheet" type="text/css" href="https://sdk.inbenta.io/chatbot/1.74.0/space-cowboy.css"><script charset="UTF-8" id="_lpTagScriptId_0" src="https://lptag.liveperson.net/lptag/api/account/38015180/configuration/applications/taglets/.jsonp?v=2.0&amp;df=undefined&amp;b=undefined"></script><script async="" id="lp-ui-framework" src="https://lpcdn.lpsnmedia.net/le_unified_window/10.31.1.0-release_5629/ui-framework.js?version=10.31.1.0-release_5629" charset="utf-8"></script><script async="" id="lp-api-messaging" src="https://lpcdn.lpsnmedia.net/le_unified_window/10.31.1.0-release_5629/UMSClientAPI.min.js?version=10.31.1.0-release_5629" charset="utf-8"></script><script async="" id="lp-api-chat" src="https://lpcdn.lpsnmedia.net/le_unified_window/10.31.1.0-release_5629/lpChatV3.min.js?version=10.31.1.0-release_5629" charset="utf-8"></script><script async="" id="lp-survey-logic" src="https://lpcdn.lpsnmedia.net/le_unified_window/10.31.1.0-release_5629/surveylogicinstance.min.js?version=10.31.1.0-release_5629" charset="utf-8"></script><script async="" id="lp-uw-embedded" src="https://lpcdn.lpsnmedia.net/le_unified_window/10.31.1.0-release_5629/desktopEmbedded.js?version=10.31.1.0-release_5629" charset="utf-8"></script></head>
+<!--
+    Para alternar entre os logos das marcas,
+    trocar a classe padrao-estacio por padrao-unitoledo,
+    padrao-wyden, padrao-ibmec ou padrao-damasio
+-->
+<body class="padrao-ibmec" style="height: auto;">
+    <div id="contentModal"></div>
+    
+    <script src="/sianet/content/novo/jsjqueryui?v=YvkLL1WMI9nFJkNaMJ5NvzUaPC3fHDp_-OU-td0bl-w1"></script>
+
+    <script src="/sianet/bundles/fileupload?v=eDdfsHzyYOac-OL91uEFBp2_x8UP6HSZTW8244-4-1s1"></script>
+
+    <script src="/sianet/bundles/estaciojs?v=KD1TZKdlKhCj1esMnleOqFPyTXkweRfVO2dKA9Bt6zY1"></script>
+
+    <script src="/sianet/bundles/knockout?v=f2NZR8_c4eP6sKtn1YHG6fI6DlyHEJBkTlCe0Mdzf0k1"></script>
+
+    <script src="/sianet/bundles/blockui?v=ioqpQF7yAEQ7x5IoeoFmt9IKVK9C6ivDFtL0skuwng41"></script>
+
+    <script src="/sianet/bundles/estacio/portalalunojs?v=PLjaxL7P31lRm2msz70ffOkbPCZizmabd_3QOj8XOoA1"></script>
+
+    <script src="/sianet/bundles/estacio-modaljs?v=KaKhZBzWIun1tYaQvnevjdR9nlq3-j288vCCzppxa481"></script>
+
+    <script src="/sianet/bundles/jqueryval?v=DymN_Nxh2z3YZSCHdcR0AeQPgNKS5Sl3kBS6rFbe7U41"></script>
+
+    <script src="/sianet/bundles/jquerymask?v=kfCn65TAiUR3HOWWidmF6LxvKRXymDSljaaZuH6iECk1"></script>
+
+    <script src="/sianet/content/novo/js?v=I6axymgzoy20mkRNSHlGzePChLbO-QPLgefWBQ0Wv7o1"></script>
+
+    <script src="/sianet/content/novo/lottie?v=g69T2etFJBxBKUBMovPASBuqsjtU8p2qnIjrRlcveN01"></script>
+
+    <script src="/sianet/bundles/moment?v=bmoFxRRdRbP5sP7BxiS3qr5rYmgVWxXpo7IAWPIIbpM1"></script>
+
+
+    
+
+<script nonce="sha256-89EFA17361E061D4870465A2334044D67B6AFFE7DD0CBC59CEABB8E55ADD5058" type="text/javascript" src="/sianet/bundles/inbentaibmecjs?v=VF-Q9soY9vT61VfCMYQoAkTkaqpfAHW5gLdYW6JVYe41" id="inbenta-chatbot-script" data-usertype="1" data-launcher="yes"></script>
+
+
+<div id="topo" class="topo logo-ibmec">
+    <nav class="d-flex align-items-center justify-content-between">
+        <div id="logo_topo" class="logo-topo">
+
+            <!--<span class="insere-logo"></span>-->
+            <div class="logo-direto">
+                <a href="/sianet/">
+                    <!--aqui entra o img com a imagem-->
+                    <!--a imagem comentada abaixo é para testes-->
+                    <img src="data:image;base64, iVBORw0KGgoAAAANSUhEUgAAAIUAAABDCAYAAACya8aVAAAACXBIWXMAABcSAAAXEgFnn9JSAAAGlmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuNTY2ZWJjNSwgMjAyMi8wNS8wOS0wNzoyMjoyOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIzLjQgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMi0wOS0wNVQxODoxMjo0Mi0wMzowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMi0wOS0wNVQxOTozMDoxNC0wMzowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDktMDVUMTk6MzA6MTQtMDM6MDAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6YWE2MzRkMTgtMzcxNy02ZTQxLWEyYmMtNTQwZjNmYmI0MjFjIiB4bXBNTTpEb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6YTZlZDYwYmYtNDMxOS04YzQxLWI1NGItY2I4ZTA0ZTVhZDY2IiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6NDc3ZjdhZjgtMDIxMC05ZjRmLWE4OTUtZDlkMjY3ZGQyNWFkIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6NDc3ZjdhZjgtMDIxMC05ZjRmLWE4OTUtZDlkMjY3ZGQyNWFkIiBzdEV2dDp3aGVuPSIyMDIyLTA5LTA1VDE4OjEyOjQyLTAzOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjMuNCAoV2luZG93cykiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjJiMTc0ODkxLTAyMTEtNmE0NC05MzZhLTM0YTkwYTk5ZTFkOCIgc3RFdnQ6d2hlbj0iMjAyMi0wOS0wNVQxODoxMjo0Mi0wMzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIzLjQgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDphYTYzNGQxOC0zNzE3LTZlNDEtYTJiYy01NDBmM2ZiYjQyMWMiIHN0RXZ0OndoZW49IjIwMjItMDktMDVUMTk6MzA6MTQtMDM6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMy40IChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6AylW8AAAJ/UlEQVR4nO3deYxdZRnH8c8dSjtYtYosLgVBOWqJIhoRjIhKUFREXHokgqIImrhgMIAkVnEhgCRqTMTIEtHEJeotqSiiBnEDI4qiFlKhFzcKiG2nUnBsKVPGP55zOzNnuXOLs1z1/SaEe8573uW853ee932f9znT1vj4uERiMkPz3YDE4JFEkaiQRJGokESRqJBEkaiQRJGo0Or+GF1pMQ7FM4pTt+KXi5cbnY+GJeaOsluiBaMrLcMKHI09irSN+AHOW7zcH+awjYk5piKK0ZWegq/gBQ15foFTkjD+dymLYgjv0CwIRdpJ266xyyy2KzFADOG4Pq477sHN9p7txiQGgyE8so/r9sTjZ7ktiQGh3yXpFtw7i+1IDBBDuLGP636Lv89yWxIDwhA+h3U9rtmIy5K/4v+HoV2X+CnOUS+MdThr1yW+N7fNSswnkz2az0WOA4tTa9BevNxN89GwxNxR69GcTNcfsfBlts9RmxLzTL0osnw343abNnfLFp32lh3HDzdfYqAoi2JB8f+TtJzcR/4v4pJJxydqOfVh5EsMMF1RLBU7pNPxo9Lxkx9mvsQAs2Ca9K24nh3L0TWl9FtwZfF7MQ7H8Iy1LjEvTCeKDXgn7iqOx0rpbawqfj8NV2OfGWtdYl6YThSwXae9rTal034IkZbl9dck/uvoRxQzS5bvhqfiCWIz7kFsFm70dY2rlCwfKvIs7FH6dmzYUUaWL8R+2FsED3Xr+hP+Voi6rq498RSxEbgr/okNxt3h9vamvu+1vv1L8Wg7c+8zU8dG3KnTvn+6YuZKFNsLMbwKb8Eh2H1S/Q9gE26S5VcY992azn8cLkXWo54teKcs/y1eXNR1OPbCouKaUfwVK2X55Trtu3bkzvJ9cQJeiwPEPGmBGDbv07Jalq80rt23OEKYL8ar8RI8aVK53Xtfj1/L8itwdT8PrlTHo4o6jsVhDXVsws2y/Dp8H6ubXoqun+JcfKgmfR0O12nf0UfDnoYfqp9TfFk8sOOxZJqStorVyid02tdNKv9J+LHeotiK0/B0nCyE1Isf4v1iAn0czjb9ampMzKPO1mn/ueeVWf7Moj1v6KMthGCvxkd02tNHuoVleCHOwFFCCP2wTtzDxbhtfO03p4hjrixFbmJVMiZUOyqsRVkkw8KiZLL8PTrta4rz9wlxLcVueL1qJyzAB7F/cbxVTJZ3EdaifL9H4UJchzNNPLhuvkVFvnIdOcjyUxrf6ix/ES7CQaWUzWJn+m9icv5sE32zuCh7X1l+qk77ltqyo/yFOAkfwxNLqWNC6DeIfns0lgkLPSxe3PfhOXiTiYUE5i7Ef1h09JXiDT4arxDm7lJqd2AznCvL4wFH55+Hd+EjonPLLBCCGBUroxOKuo4WVmB9TZ5X4VwhiM1CePmkfJ9saN+xmqLWsvxg9YLo4M1C0G8ryliBkdJ1h+JCB+S7N5Q/JATxSVVBbMbHi7LfpdM+S/TZG3A67p507X5CMFOYK0sxgvNxWenNWivLf4k7xU5tuT2H4t2yfIVOe9uOMTDLp6vro/hCySW/Bo/Bh2vyLBAmdQW+MWW1leW3CSddudJhvEaWf7N0/Z5CvHUWYoVO+6pJ5zbI8ovE5PDM0vVHajlBiKvMC0V/la3sGD6BT09pU/TbBlxS9N1n9PAnzZWluAIX1ZraaPzF+E1D3uOFme2Xr+LSykw+OuYa9RZmVDywL1eW31HOtQ11PVP1wRyHI2uu/TmuqpyN+r6Ke0opw3hjIbIJYlJ5mvq52y/Ey9DsHhjXxu8b082dKEZ6NrTT3oBvNaTuI2bt/bKxR133qzrguvylR5n3iuGvzBKTY1zjgR2v/i28tseS849iRVTmIBMfZ3U5TAx5dXyr6MtmWu4Vc6hGBumzwd+oH7vh+cU4OlssMv2qqI4FpgrgQNVhgxDUzT3KeUB1XqFo0yE7jqIPXq5+lTEirFFvwmLeXhzVfrYx986rZu4Upr3uhvcrzu/c+n3n2HUGyjhYdbXSZXmxIqmjZWLFVC0zy4eKh7nIRBBUmU2iD/thjVj6jqh5EQdJFKOaLcUeYpY8m6KYCQ5oOD8s9pAeDk8Qz2mbWMIvbbhuk1h+9sPPsbz4/UA5cZBEsV3zeL9Eb/f2/BOmvbK8m8R6zffXi3+YMPOL8aiG67b1XX5YnUaX+iCJ4n+ZEZyCtRrG8R6Mmvo2z/ozGyRR7KK5PaO6u7GDSqf9kCyvW6F0uVOnvfY/rGWr2JyrY6EZep6DtPoY1uxQ2WS82dwNEHXLSsLs79mQtjP8Q+x21rE7HjsDdQyUKPbWPCbfUayvB50b1TvHhvGsGSh/VLM/ZS+xEfgfM0iieLZmX8HNjbEPg8WtxX91HFFsYvVHlg9VfDPRB02+iCV46Uz4c+ZKFL19ABFr8cqG1BH8ZIbbM1uM4LsNaS/QX5BzdyXzdqwovKST+bHYWKtjuWY/RrmOgysu9IK5EsUxPRw38BoRJFLHj/C7GW/RbBBv8jewuiZ1L5zRuPPZJV6Q08XG1jk4vfT2346vN+XGOU0Puyh/SJa/Dl/Dp4o4lSn0F6PZHw/2SFuGL8jyi0Vwx10YM+4xWo4RMQF1nsy78dmdjkSaTzrttbL8fPHhdjmw5hgtn5HlF+C2KUNiiOF54i8LdeNP1itH0Mcq5xJheY6qacHrivLOx5od+0AhrKV4K94rRLqveB6rJhcwnSgegVfL8vXCqqyZEhGU5cuEuXpIhIA9oqGcrULFF+JUsV7fpuXxeK56QYziAv348wePVaI/ytvbC0SI4GG4odjOJ7yWBwhRdN3k9+ADWFWZT3Xad8nys8TucnlI6gYBPQ/Xy/KOeGH3L+o9sLhmKz4tos8qBfTicabu519Q3GiX5aXjuvI24zKxkXOQsBrLpqn37qKuSwdogtm/D6DT3lbESdwnHmw5hDCrOTeZ1SIm5MrG+++0fyfLTxZW9ljV5fz+mvdT7san8Pm6ndvujW5TvzVcpm6IGGv43WULvo3LxVj5ShP+/Ml0Q+B+IkzvjdMI4oGGNvcaxuBfqpap4v8vMSYs16LS+ea/2RHCuFyExL1D3Pc+mn0xW/FnEULwpb4cXZ32H2T5KSKK7UQTAdF1dYyJ4eha0/Rv98F8R6x/e/3jHy3V7d9VfeR7ELfqtDfI8tNEXOBLxbDxWCHIEfxKfI22pmfsRbARZ1H5uLkl/upOPePu0HKG6sOlOciH8D+8t+b8Fr12JqPTb5Hl7xem/ggRNbWfib2c+8UnBzfiZ7h9p6xjzLfasvwqYYkPET6RpSb2Se7BTWLlsnq6Twla6R+BSZQZJOdVYkBIokhUSKJIVEiiSFRIokhUSKJIVEiiSFRIokhUSKJIVEiiSFRIokhUSKJIVEiiSFRIokhUSKJIVEiiSFRIokhU+DdmX84yK59EvwAAAABJRU5ErkJggg==">
+                    
+                    <!--<img src="/sianet/Content/wyden/SiteNovo/dist/img/logos/logo-unimetrocamp-sia.png" />-->
+                </a>
+            </div>
+
+        </div>
+
+        <div id="elementos_topo" class="flex-direction-row align-items-center">
+                <a href="#" class="chat">
+                    <div class="d-flex flex-direction-row botoes-navbar">
+                        <div class="botao-barra-navegacao">
+                            <div class="caixa-icone-navegacao">
+                                <div class="circulo-fundo"></div>
+                                <i class="fas fa-comment-alt"></i>
+                            </div>
+                            <div class="nao-selecionar">Atendimento Virtual</div>
+                        </div>
+                    </div>
+                </a>
+
+            <div class="d-flex flex-direction-row ml-4 position-relative botoes-navbar">
+                <div id="botao_notificacoes" class="botao-barra-navegacao">
+                    <div class="caixa-icone-navegacao">
+                        <div class="circulo-fundo"></div>
+                        <i class="fas fa-bell"></i>
+
+                    </div>
+                    <div class="nao-selecionar">Notificações</div>
+                </div>
+
+                <div id="menu_notificacoes" class="position-absolute" style="display: none;">
+                    <div class="card">
+                        <div class="ponta">
+                            <svg height="10" width="22">
+                                <polygon points="0,10 22,10 11,0" style="fill:white; stroke:#E2E1E8; stroke-width:1"></polygon>
+                            </svg>
+                        </div>
+                                <div class="mensagens">
+                                    Você não possui notificações.
+                                </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="area_usuario">
+
+                <div class="dados-usuario">
+                    Olá, <strong class="diferencia-marcas">Ricardo</strong><br>
+                    Matrícula: <span class="numero-matricula"> 202201314291</span>
+                </div>
+
+                <div id="icone-usuario" class="icone-usuario tem-foto">
+                    <i class="icone-usuario-generico fas fa-user"></i>
+                    <i class="icone-usuario-idomed">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18.286" viewBox="0 0 16 18.286">
+  <path id="user-doctor-solid" d="M12.571,4.571A4.588,4.588,0,1,1,7.968,0,4.578,4.578,0,0,1,12.571,4.571Zm-2.318,8.357a2.325,2.325,0,0,0-1.714,2.214V16a.609.609,0,0,0,.2.4l.571.571a.571.571,0,0,0,.807-.807l-.436-.4v-.621A1.163,1.163,0,0,1,10.825,14,1.149,1.149,0,0,1,12,15.143v.621l-.4.4a.571.571,0,0,0,.807.807l.571-.571a.574.574,0,0,0,.168-.4v-.857a2.288,2.288,0,0,0-1.714-2.214v-1.9A5.972,5.972,0,0,1,16,16.857v.286a1.142,1.142,0,0,1-1.143,1.143H1.143A1.142,1.142,0,0,1,0,17.143v-.286a6,6,0,0,1,4.571-5.829v2.2a2,2,0,1,0,1.143,0V10.864c.1,0,.189-.007.286-.007h4c.1,0,.189,0,.286.007ZM5.968,15.143A.835.835,0,0,1,5.111,16a.857.857,0,1,1,0-1.714A.835.835,0,0,1,5.968,15.143Z" fill="currentColor"></path>
+</svg>
+                    </i>
+                    <div class="status-usuario"></div>
+                </div>
+
+                <div id="menu_usuario" class="menu-usuario" style="display: none;">
+                    <div class="card">
+
+                        <div class="ponta">
+                            <svg height="10" width="22">
+                                <polygon points="0,10 22,10 11,0" style="fill:white; stroke:#E2E1E8; stroke-width:1"></polygon>
+                            </svg>
+                        </div>
+
+                        <div class="links grupo-superior">
+                            <a href="/sianet/AspClassico?exe=..%2F..%2Falu%2Ffoto%2Ffoto.asp">
+                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 420.8 420.8" style="enable-background:new 0 0 420.8 420.8;" xml:space="preserve">
+<g>
+	<g>
+		<g>
+			<path d="M406.8,96.4c-8.4-8.8-20-14-33.2-14h-66.4v-0.8c0-10-4-19.6-10.8-26c-6.8-6.8-16-10.8-26-10.8h-120
+				c-10.4,0-19.6,4-26.4,10.8c-6.8,6.8-10.8,16-10.8,26v0.8h-66c-13.2,0-24.8,5.2-33.2,14c-8.4,8.4-14,20.4-14,33.2v199.2
+				C0,342,5.2,353.6,14,362c8.4,8.4,20.4,14,33.2,14h326.4c13.2,0,24.8-5.2,33.2-14c8.4-8.4,14-20.4,14-33.2V129.6
+				C420.8,116.4,415.6,104.8,406.8,96.4z M400,328.8h-0.4c0,7.2-2.8,13.6-7.6,18.4s-11.2,7.6-18.4,7.6H47.2
+				c-7.2,0-13.6-2.8-18.4-7.6c-4.8-4.8-7.6-11.2-7.6-18.4V129.6c0-7.2,2.8-13.6,7.6-18.4s11.2-7.6,18.4-7.6h77.2
+				c6,0,10.8-4.8,10.8-10.8V81.2c0-4.4,1.6-8.4,4.4-11.2s6.8-4.4,11.2-4.4h119.6c4.4,0,8.4,1.6,11.2,4.4c2.8,2.8,4.4,6.8,4.4,11.2
+				v11.6c0,6,4.8,10.8,10.8,10.8H374c7.2,0,13.6,2.8,18.4,7.6s7.6,11.2,7.6,18.4V328.8z"></path>
+			<path d="M210.4,130.8c-27.2,0-52,11.2-69.6,28.8c-18,18-28.8,42.4-28.8,69.6s11.2,52,28.8,69.6c18,18,42.4,28.8,69.6,28.8
+				s52-11.2,69.6-28.8c18-18,28.8-42.4,28.8-69.6s-11.2-52-28.8-69.6C262.4,142,237.6,130.8,210.4,130.8z M264.8,284
+				c-14,13.6-33.2,22.4-54.4,22.4S170,297.6,156,284c-14-14-22.4-33.2-22.4-54.4c0-21.2,8.8-40.4,22.4-54.4
+				c14-14,33.2-22.4,54.4-22.4s40.4,8.8,54.4,22.4c14,14,22.4,33.2,22.4,54.4C287.6,250.8,278.8,270,264.8,284z"></path>
+			<circle cx="352.8" cy="150" r="19.6"></circle>
+		</g>
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+                                Editar foto
+                            </a>
+                        </div>
+
+                        <!--<div class="links grupo-superior">
+        <a href="">
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+            EAD - Administração
+        </a>
+    </div>-->
+
+                        <div class="links grupo-superior">
+                            <a href="/alu/doc/ibmec_grad_man2023.pdf" target="_blank">
+                                <svg id="Capa_1" enable-background="new 0 0 511.989 511.989" height="512" viewBox="0 0 511.989 511.989" width="512" xmlns="http://www.w3.org/2000/svg"><g><path d="m470.994 330c0-24.146-17.205-44.348-40-48.994v-54.006c0-4.92-2.412-9.526-6.456-12.329s-9.206-3.445-13.811-1.716l-28.629 10.736c-18.8-19.545-41.652-34.266-66.694-43.303 24.608-18.234 40.59-47.478 40.59-80.388 0-55.141-44.859-100-100-100s-100 44.859-100 100c0 32.91 15.982 62.154 40.59 80.388-25.043 9.038-47.894 23.759-66.694 43.303l-28.629-10.736c-4.606-1.729-9.768-1.087-13.811 1.716-4.044 2.803-6.456 7.409-6.456 12.329v54.006c-22.795 4.646-40 24.847-40 48.994s17.205 44.348 40 48.994v58.006c0 6.253 3.879 11.85 9.733 14.045l160 60c3.374 1.258 7.159 1.258 10.533 0l160-60c5.854-2.195 9.733-7.792 9.733-14.045v-58.006c22.796-4.646 40.001-24.848 40.001-48.994zm-285-230c0-38.598 31.402-70 70-70s70 31.402 70 70-31.402 70-70 70-70-31.402-70-70zm70 100c35.143 0 68.709 12.701 94.899 35.393l-94.899 35.587-94.899-35.587c26.191-22.692 59.757-35.393 94.899-35.393zm-185 130c0-11.028 8.972-20 20-20h10v40h-10c-11.028 0-20-8.972-20-20zm40 49.497c11.397-2.323 20-12.424 20-24.497v-50c0-12.073-8.603-22.174-20-24.497v-31.858l130 48.75v177.961l-130-48.75zm160 95.858v-177.96l130-48.75v31.858c-11.397 2.323-20 12.424-20 24.497v50c0 12.073 8.603 22.174 20 24.497v47.108zm150-125.355h-10v-40h10c11.028 0 20 8.972 20 20s-8.971 20-20 20z"></path></g></svg>
+                                Manual do Aluno
+                            </a>
+                        </div>
+                        <div class="grupo-destacado">
+                            <div class="links">
+                                <a href="/sianet/Requerimento/Ouvidoria">
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612px" height="612px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+<g>
+	<g id="_x32__26_">
+		<g>
+			<path d="M401.625,325.125h-191.25c-10.557,0-19.125,8.568-19.125,19.125s8.568,19.125,19.125,19.125h191.25
+				c10.557,0,19.125-8.568,19.125-19.125S412.182,325.125,401.625,325.125z M439.875,210.375h-267.75
+				c-10.557,0-19.125,8.568-19.125,19.125s8.568,19.125,19.125,19.125h267.75c10.557,0,19.125-8.568,19.125-19.125
+				S450.432,210.375,439.875,210.375z M306,0C137.012,0,0,119.875,0,267.75c0,84.514,44.848,159.751,114.75,208.826V612
+				l134.047-81.339c18.552,3.061,37.638,4.839,57.203,4.839c169.008,0,306-119.875,306-267.75C612,119.875,475.008,0,306,0z
+				 M306,497.25c-22.338,0-43.911-2.601-64.643-7.019l-90.041,54.123l1.205-88.701C83.5,414.133,38.25,345.513,38.25,267.75
+				c0-126.741,119.875-229.5,267.75-229.5c147.875,0,267.75,102.759,267.75,229.5S453.875,497.25,306,497.25z"></path>
+		</g>
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+                                    Ouvidoria
+                                </a>
+                            </div>
+                                <div class="links">
+                                    <a href="#" class="chat">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+    <g transform="translate(0 -0.002)">
+        <g transform="translate(0 0.002)">
+            <path d="M19.643,0H2.357A2.357,2.357,0,0,0,0,2.359V14.931a2.357,2.357,0,0,0,2.357,2.357H5.146L4.719,21.13a.786.786,0,0,0,1.307.67l5.014-4.512h8.6A2.357,2.357,0,0,0,22,14.931V2.359A2.357,2.357,0,0,0,19.643,0Z" transform="translate(0 -0.002)"></path>
+        </g>
+    </g>
+</svg>
+                                        Atendimento Online
+                                    </a>
+                                </div>
+                        </div>
+
+                        <div class="links">
+                            <a href="/sianet/Aluno/Academico/DadosCadastrais">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15.922" viewBox="0 0 16 15.922"><defs><style>.a{fill:#666;}</style></defs><g transform="translate(-0.001 -1.289)"><path d="M9.95,3.946,13.2,7.2,4.966,15.439,1.713,12.185Zm5.724-.785L14.223,1.709a1.44,1.44,0,0,0-2.035,0L10.8,3.1l3.255,3.255,1.622-1.622A1.11,1.11,0,0,0,15.674,3.161ZM.01,16.759a.37.37,0,0,0,.448.441l3.627-.879L.832,13.066Z" transform="translate(0)"></path></g></svg>
+                                Editar Cadastro
+                            </a>
+                        </div>
+
+                        <!--<div class="links">
+        <a href="">
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/fingerprint.svg" class="icone-svg" onload="fetchSvg(this)" />
+            Trocar Senha
+        </a>
+    </div>
+    <div class="links">
+        <a href="">
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/negotiating.svg" class="icone-svg" onload="fetchSvg(this)" />
+            Política de Privacidade
+        </a>
+    </div>-->
+
+                        <div class="links sair"><a href="/sianet/Cabecalho/Logout" id="menu_usuario_sair">Sair</a></div>
+                    </div>
+                </div>
+            </div>
+            <button id="botao_menu" class="botao-menu-responsivo">
+                <i class="fas fa-bars barras"></i>
+                <i class="fas fa-times fechar"></i>
+            </button>
+        </div>
+        
+    </nav>
+</div>
+
+<!-- BEGIN LivePerson Monitor. -->
+<script nonce="sha256-89EFA17361E061D4870465A2334044D67B6AFFE7DD0CBC59CEABB8E55ADD5058" type="text/javascript">
+    window.lpTag = window.lpTag || {}; if (typeof window.lpTag._tagCount === 'undefined') { window.lpTag = { site: '38015180', section: lpTag.section || '', autoStart: lpTag.autoStart === false ? false : true, ovr: lpTag.ovr || {}, _v: '1.5.1', _tagCount: 1, protocol: location.protocol, events: { bind: function (app, ev, fn) { lpTag.defer(function () { lpTag.events.bind(app, ev, fn) }, 0) }, trigger: function (app, ev, json) { lpTag.defer(function () { lpTag.events.trigger(app, ev, json) }, 1) } }, defer: function (fn, fnType) { if (fnType == 0) { this._defB = this._defB || []; this._defB.push(fn) } else if (fnType == 1) { this._defT = this._defT || []; this._defT.push(fn) } else { this._defL = this._defL || []; this._defL.push(fn) } }, load: function (src, chr, id) { var t = this; setTimeout(function () { t._load(src, chr, id) }, 0) }, _load: function (src, chr, id) { var url = src; if (!src) { url = this.protocol + '//' + ((this.ovr && this.ovr.domain) ? this.ovr.domain : 'lptag.liveperson.net') + '/tag/tag.js?site=' + this.site } var s = document.createElement('script'); s.setAttribute('charset', chr ? chr : 'UTF-8'); if (id) { s.setAttribute('id', id) } s.setAttribute('src', url); document.getElementsByTagName('head').item(0).appendChild(s) }, init: function () { this._timing = this._timing || {}; this._timing.start = (new Date()).getTime(); var that = this; if (window.attachEvent) { window.attachEvent('onload', function () { that._domReady('domReady') }) } else { window.addEventListener('DOMContentLoaded', function () { that._domReady('contReady') }, false); window.addEventListener('load', function () { that._domReady('domReady') }, false) } if (typeof (window._lptStop) == 'undefined') { this.load() } }, start: function () { this.autoStart = true }, _domReady: function (n) { if (!this.isDom) { this.isDom = true; this.events.trigger('LPT', 'DOM_READY', { t: n }) } this._timing[n] = (new Date()).getTime() }, vars: lpTag.vars || [], dbs: lpTag.dbs || [], ctn: lpTag.ctn || [], sdes: lpTag.sdes || [], ev: lpTag.ev || [] }; lpTag.init() } else { window.lpTag._tagCount += 1 }
+
+    function popupChatAtendimento(url, windowname, w, h, x, y) {
+        window.open(url, windowname, "resizable=no,toolbar=no,scrollbars=yes,menubar=no,status=no,directories=no,width=" + w + ",height=" + h + ",left=" + x + ",top=" + y + "");
+    }
+
+    function ExibirChat() {
+        window.openChatbot();
+    }
+
+    $(function () {
+        function carregarNotificacao(listarTodas, url) {
+            $("#modal_notificacoes, #modal_listagem_notificacoes").modal('hide');
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'html',
+                success: function (results) {
+                    if (results) {
+                        $(results).prependTo('body');
+                        if (listarTodas) {
+                            $('#modal_listagem_notificacoes').modal('show');
+                        } else {
+                            $('#modal_notificacoes').modal('show');
+                        }
+
+                    }
+                }
+            });
+        }
+
+        $('.chat').on('click', function (e) {
+            e.preventDefault();
+            ExibirChat();
+        })
+
+        $('.carregarNotificacao').on('click', function (e) {
+            e.preventDefault();
+            var url = $(this).data('url');
+            carregarNotificacao(false, url);
+        })
+
+        $('.carregarTodasNotificacoes').on('click', function (e) {
+            e.preventDefault();
+            var url = $(this).data('url');
+            carregarNotificacao(true, url);
+        })
+    });
+</script>
+<!-- END LivePerson Monitor. -->
+
+
+    <div class="corpo">
+        <!--MENU-->
+        <div id="fundo_menu"></div>
+        <div id="menu" class="nao-selecionar" style="max-height: 489px;">
+
+<div class="list-group" id="raizMenu">
+    <div id="SALA-VIRTUAL" class="panel">
+    <a class="list-group-item menu-raiz collapsed" data-parent="#raizMenu" href="#SALA-VIRTUAL-children" data-toggle="collapse" aria-expanded="false">
+        <!--<div style="padding-left:0px">Minhas Disciplinas</div>-->
+        <div>Minhas Disciplinas</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="SALA-VIRTUAL-children" class="collapse">
+            <div id="SALA-AULAS-VIRTUAIS" class="panel">
+    <a class="list-group-item menu-submenu" data-parent="#SALA-VIRTUAL-children" href="https://estudante.ibmec.br/?" target="_blank">
+        <!--<div style="padding-left:15px">Sala de Aula Virtual</div>-->
+        <div>Sala de Aula Virtual</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-01" class="panel">
+    <a class="list-group-item menu-raiz collapsed" data-parent="#raizMenu" href="#ALU-01-children" data-toggle="collapse" aria-expanded="false">
+        <!--<div style="padding-left:0px">Acad&#234;mico</div>-->
+        <div>Acadêmico</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-01-children" class="collapse" style="">
+            <div id="ALU-3" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/Aluno/Academico/DadosCadastrais">
+        <!--<div style="padding-left:15px">Dados Cadastrais</div>-->
+        <div>Dados Cadastrais</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALUN-3" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/Aluno/Academico/InformacoesPorEmail">
+        <!--<div style="padding-left:15px">Informa&#231;&#245;es Acad&#234;micas E Financeiras por E-mail</div>-->
+        <div>Informações Acadêmicas E Financeiras por E-mail</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-32" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/Frequencia/">
+        <!--<div style="padding-left:15px">Consulta Frequ&#234;ncia</div>-->
+        <div>Consulta Frequência</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-35" class="panel">
+    <a class="list-group-item menu-submenu collapsed" data-parent="#ALU-01-children" href="#ALU-35-children" data-toggle="collapse">
+        <!--<div style="padding-left:15px">Hist&#243;rico Escolar Digital</div>-->
+        <div>Histórico Escolar Digital</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-35-children" class="collapse">
+            <div id="ALU-35-1" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-35-children" href="/sianet/HistoricoEscolardigital">
+        <!--<div style="padding-left:30px">Hist&#243;rico Escolar</div>-->
+        <div>Histórico Escolar</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-35-2" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-35-children" href="/sianet/historicoescolardigital/HistoricoEscolarSimplesConferencia">
+        <!--<div style="padding-left:30px">Hist&#243;rico Escolar - Simples Confer&#234;ncia</div>-->
+        <div>Histórico Escolar - Simples Conferência</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-5" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/Aluno/Academico/DisciplinasMatriculadas">
+        <!--<div style="padding-left:15px">Disciplinas Matriculadas</div>-->
+        <div>Disciplinas Matriculadas</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-26" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/EstruturaCurricular">
+        <!--<div style="padding-left:15px">Estrutura Curricular</div>-->
+        <div>Estrutura Curricular</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-7" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/Aluno/Academico/DisciplinaLiberadaAluno">
+        <!--<div style="padding-left:15px">Disciplinas Liberadas para Cursar</div>-->
+        <div>Disciplinas Liberadas para Cursar</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-6" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/FaltaCursar">
+        <!--<div style="padding-left:15px">Falta Cursar</div>-->
+        <div>Falta Cursar</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-8" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/Aluno/Academico/QuadroHorarios">
+        <!--<div style="padding-left:15px">Quadro de Hor&#225;rios</div>-->
+        <div>Quadro de Horários</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-9" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/Aluno/Academico/DatasProvas">
+        <!--<div style="padding-left:15px">Datas de Provas Presencias</div>-->
+        <div>Datas de Provas Presencias</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-10" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/NotasProvas/">
+        <!--<div style="padding-left:15px">Notas de Provas</div>-->
+        <div>Notas de Provas</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-2" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/Aluno/Academico/RenovacaoGraduacao">
+        <!--<div style="padding-left:15px">Renova&#231;&#227;o de Matr&#237;cula - Gradua&#231;&#227;o</div>-->
+        <div>Renovação de Matrícula - Graduação</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-39" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-39">
+        <!--<div style="padding-left:15px">Depend&#234;ncia de Disciplina - Gradua&#231;&#227;o</div>-->
+        <div>Dependência de Disciplina - Graduação</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-33" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/Aluno/Academico/ContratoEducacional">
+        <!--<div style="padding-left:15px">Consulta Contrato Educacional</div>-->
+        <div>Consulta Contrato Educacional</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-85" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-01-children" href="/sianet/Aluno/Academico/PreRenovacao">
+        <!--<div style="padding-left:15px">Pr&#233;-matricula</div>-->
+        <div>Pré-matricula</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-40" class="panel">
+    <a class="list-group-item menu-raiz collapsed" data-parent="#raizMenu" href="#ALU-40-children" data-toggle="collapse" aria-expanded="false">
+        <!--<div style="padding-left:0px">E-mail de Estudante</div>-->
+        <div>E-mail de Estudante</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-40-children" class="collapse">
+            <div id="ALU-40-1" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-40-children" href="/sianet/EmailEstudante">
+        <!--<div style="padding-left:15px">Atualiza&#231;&#227;o de Senha E Benef&#237;cios</div>-->
+        <div>Atualização de Senha E Benefícios</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-02" class="panel">
+    <a class="list-group-item menu-raiz collapsed" data-parent="#raizMenu" href="#ALU-02-children" data-toggle="collapse" aria-expanded="false">
+        <!--<div style="padding-left:0px">Financeiro</div>-->
+        <div>Financeiro</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-02-children" class="collapse">
+            <div id="ALU-55" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-02-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-55">
+        <!--<div style="padding-left:15px">Consulta Propostas de Negocia&#231;&#227;o</div>-->
+        <div>Consulta Propostas de Negociação</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-80" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-02-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-80">
+        <!--<div style="padding-left:15px">D&#233;bito Autom&#225;tico em Conta</div>-->
+        <div>Débito Automático em Conta</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-60" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-02-children" href="/sianet/Aluno/InformacoesFinanceiras/Financeiro">
+        <!--<div style="padding-left:15px">Informa&#231;&#245;es Financeiras</div>-->
+        <div>Informações Financeiras</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-81" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-02-children" href="/sianet/Aluno/CobrancaAluno/PortalExterno/Redirect">
+        <!--<div style="padding-left:15px">Simulador de Negocia&#231;&#227;o</div>-->
+        <div>Simulador de Negociação</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-99" class="panel">
+    <a class="list-group-item menu-raiz collapsed" data-parent="#raizMenu" href="#ALU-99-children" data-toggle="collapse" aria-expanded="false">
+        <!--<div style="padding-left:0px">Atendimento</div>-->
+        <div>Atendimento</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-99-children" class="collapse">
+            <div id="ALU-70" class="panel">
+    <a class="list-group-item menu-submenu collapsed" data-parent="#ALU-99-children" href="#ALU-70-children" data-toggle="collapse">
+        <!--<div style="padding-left:15px">Atendimento Agendado</div>-->
+        <div>Atendimento Agendado</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-70-children" class="collapse">
+            <div id="ALU-70-1" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-70-children" href="/sianet/AtendimentoAgendado/">
+        <!--<div style="padding-left:30px">Novo</div>-->
+        <div>Novo</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-70-2" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-70-children" href="/sianet/AtendimentoAgendado/Consulta">
+        <!--<div style="padding-left:30px">Consultar</div>-->
+        <div>Consultar</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-07" class="panel">
+    <a class="list-group-item menu-submenu collapsed" data-parent="#ALU-99-children" href="#ALU-07-children" data-toggle="collapse">
+        <!--<div style="padding-left:15px">Requerimentos</div>-->
+        <div>Requerimentos</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-07-children" class="collapse">
+            <div id="ALU-1-1" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-07-children" href="/sianet/Requerimento">
+        <!--<div style="padding-left:30px">Novo</div>-->
+        <div>Novo</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-1-2" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-07-children" href="/sianet/ConsultaRequerimento/">
+        <!--<div style="padding-left:30px">Consulta</div>-->
+        <div>Consulta</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-07-1" class="panel">
+    <a class="list-group-item menu-submenu collapsed" data-parent="#ALU-99-children" href="#ALU-07-1-children" data-toggle="collapse">
+        <!--<div style="padding-left:15px">Reclama&#231;&#245;es</div>-->
+        <div>Reclamações</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-07-1-children" class="collapse">
+            <div id="ALU-07-1-1" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-07-1-children" href="/sianet/Requerimento/Reclamacoes">
+        <!--<div style="padding-left:30px">Nova</div>-->
+        <div>Nova</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-07-1-2" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-07-1-children" href="/sianet/ConsultaRequerimento/Reclamacoes">
+        <!--<div style="padding-left:30px">Consulta</div>-->
+        <div>Consulta</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-07-2" class="panel">
+    <a class="list-group-item menu-submenu collapsed" data-parent="#ALU-99-children" href="#ALU-07-2-children" data-toggle="collapse">
+        <!--<div style="padding-left:15px">Ouvidoria</div>-->
+        <div>Ouvidoria</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-07-2-children" class="collapse">
+            <div id="ALU-07-2-1" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-07-2-children" href="/sianet/Requerimento/Ouvidoria">
+        <!--<div style="padding-left:30px">Nova</div>-->
+        <div>Nova</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-07-2-2" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-07-2-children" href="/sianet/ConsultaRequerimento/Ouvidoria">
+        <!--<div style="padding-left:30px">Consulta</div>-->
+        <div>Consulta</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+
+        </div>
+</div>
+<div id="ALU-15" class="panel">
+    <a class="list-group-item menu-raiz collapsed" data-parent="#raizMenu" href="#ALU-15-children" data-toggle="collapse" aria-expanded="false">
+        <!--<div style="padding-left:0px">Atividades Complementares</div>-->
+        <div>Atividades Complementares</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-15-children" class="collapse">
+            <div id="ALU-15-1" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-15-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-15-1">
+        <!--<div style="padding-left:15px">Agenda Atividades</div>-->
+        <div>Agenda Atividades</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-15-2" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-15-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-15-2">
+        <!--<div style="padding-left:15px">Efetuar Inscri&#231;&#227;o</div>-->
+        <div>Efetuar Inscrição</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-15-3" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-15-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-15-3">
+        <!--<div style="padding-left:15px">Cancelar Inscri&#231;&#227;o</div>-->
+        <div>Cancelar Inscrição</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-15-4" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-15-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-15-4">
+        <!--<div style="padding-left:15px">Consultar Horas E Atividades Realizadas</div>-->
+        <div>Consultar Horas E Atividades Realizadas</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-20" class="panel">
+    <a class="list-group-item menu-raiz collapsed" data-parent="#raizMenu" href="#ALU-20-children" data-toggle="collapse" aria-expanded="false">
+        <!--<div style="padding-left:0px">Avalia&#231;&#227;o Institucional</div>-->
+        <div>Avaliação Institucional</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-20-children" class="collapse">
+            <div id="ALU-20-1" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-20-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-20-1">
+        <!--<div style="padding-left:15px">Avalia&#231;&#227;o</div>-->
+        <div>Avaliação</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-04" class="panel">
+    <a class="list-group-item menu-raiz collapsed" data-parent="#raizMenu" href="#ALU-04-children" data-toggle="collapse" aria-expanded="false">
+        <!--<div style="padding-left:0px">Bibliotecas Virtuais</div>-->
+        <div>Bibliotecas Virtuais</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-04-children" class="collapse">
+            <div id="ALU-04-6" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-04-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-04-6">
+        <!--<div style="padding-left:15px">Portal de Peri&#243;dicos Ebsco</div>-->
+        <div>Portal de Periódicos Ebsco</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-04-7" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-04-children" href="https://dynamed.com/tokenlink?tokenId=c37949ad-23fc-47ea-9649-3a74348bc718" target="_blank">
+        <!--<div style="padding-left:15px">Dynamed (evid&#234;ncias Cl&#237;nicas)</div>-->
+        <div>Dynamed (evidências Clínicas)</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-22" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-04-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-22">
+        <!--<div style="padding-left:15px">Biblioteca Virtual - Minha Biblioteca</div>-->
+        <div>Biblioteca Virtual - Minha Biblioteca</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-04-8" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-04-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-04-8">
+        <!--<div style="padding-left:15px">Biblioteca Virtual Pearson</div>-->
+        <div>Biblioteca Virtual Pearson</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-05" class="panel">
+    <a class="list-group-item menu-raiz collapsed" data-parent="#raizMenu" href="#ALU-05-children" data-toggle="collapse" aria-expanded="false">
+        <!--<div style="padding-left:0px">Carreiras</div>-->
+        <div>Carreiras</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-05-children" class="collapse">
+            <div id="ALU-14-02" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-05-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-14-02">
+        <!--<div style="padding-left:15px">Ibmec Vagas</div>-->
+        <div>Ibmec Vagas</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-14-01" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-05-children" href="https://sia.ibmec.br/web_service/web_service_sydle.asp?metodo=2" target="_blank">
+        <!--<div style="padding-left:15px">Termo de Est&#227;&#161;gio</div>-->
+        <div>Termo de Estã¡gio</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+<div id="ALU-05-1" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-05-children" href="/sianet/AspClassico/Funcao?codFuncao=ALU-05-1">
+        <!--<div style="padding-left:15px">Documentos Est&#225;gio</div>-->
+        <div>Documentos Estágio</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-06" class="panel">
+    <a class="list-group-item menu-raiz collapsed" data-parent="#raizMenu" href="#ALU-06-children" data-toggle="collapse" aria-expanded="false">
+        <!--<div style="padding-left:0px">Benef&#237;cios</div>-->
+        <div>Benefícios</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-06-children" class="collapse">
+            <div id="ALU-23" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-06-children" href="https://www.meucupom.com/clube-do-aluno" target="_blank">
+        <!--<div style="padding-left:15px">Clube do Aluno</div>-->
+        <div>Clube do Aluno</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+<div id="ALU-100" class="panel">
+    <a class="list-group-item menu-raiz collapsed" data-parent="#raizMenu" href="#ALU-100-children" data-toggle="collapse" aria-expanded="false">
+        <!--<div style="padding-left:0px">Pasta do Aluno</div>-->
+        <div>Pasta do Aluno</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+        <div id="ALU-100-children" class="collapse">
+            <div id="ALU-100-1" class="panel">
+    <a class="list-group-item menu-link" data-parent="#ALU-100-children" href="/sianet/Aluno/Academico/PastaAluno/MeusDocumentos">
+        <!--<div style="padding-left:15px">Meus Documentos</div>-->
+        <div>Meus Documentos</div>
+        <!--<div class="menu-icone">
+        <i>
+            <img src="~/Content/SiteNovo/dist/img/iconesSVG/student.svg" class="icone-svg" onload="fetchSvg(this)" />
+         </i>
+    </div>-->
+    </a>
+</div>
+
+        </div>
+</div>
+
+</div>
+
+    <script>
+        function showAlert(message) {
+            return bootbox.alert(message);
+        }
+    </script>
+</div>
+        <!-- FIM MENU -->
+        <div id="content" class="conteudo-principal">
+            
+
+
+
+<style>
+    td[data-title="Disciplina"] {
+        width: 50%;
+    }
+
+    .nota-label p + br {
+        display: none;
+    }
+
+    .nota-tipo-avaliacao, .nota-valor {
+        display: inline-block;
+        padding: 5px;
+    }
+
+    .nota-tipo-avaliacao {
+        margin-right: 1rem;
+        width: 35px;
+    }
+
+    .nota-valor {
+        width: 45px;
+        text-align: center
+    }
+
+    .nota-disponivel-vermelha{
+        color: red !important;
+    }
+</style>
+
+<div class="page fix-conteudo-01">
+
+    <h1>
+        <a class="icone-home" href="/sianet/" title="Página Inicial">
+            <i>
+                <svg height="512pt" viewBox="0 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m498.195312 222.695312c-.011718-.011718-.023437-.023437-.035156-.035156l-208.855468-208.847656c-8.902344-8.90625-20.738282-13.8125-33.328126-13.8125-12.589843 0-24.425781 4.902344-33.332031 13.808594l-208.746093 208.742187c-.070313.070313-.140626.144531-.210938.214844-18.28125 18.386719-18.25 48.21875.089844 66.558594 8.378906 8.382812 19.445312 13.238281 31.277344 13.746093.480468.046876.964843.070313 1.453124.070313h8.324219v153.699219c0 30.414062 24.746094 55.160156 55.167969 55.160156h81.710938c8.28125 0 15-6.714844 15-15v-120.5c0-13.878906 11.289062-25.167969 25.167968-25.167969h48.195313c13.878906 0 25.167969 11.289063 25.167969 25.167969v120.5c0 8.285156 6.714843 15 15 15h81.710937c30.421875 0 55.167969-24.746094 55.167969-55.160156v-153.699219h7.71875c12.585937 0 24.421875-4.902344 33.332031-13.808594 18.359375-18.371093 18.367187-48.253906.023437-66.636719zm0 0"></path></svg>
+            </i>
+        </a>
+        / Notas de Provas
+    </h1>
+
+    <div class="spacer"></div>
+
+            <div class="row row-boxed">
+                <div class="col-lg-12">
+                    <div id="table-to-box">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Disciplina</th>
+                                    <th>Número de faltas</th>
+                                    <th>Faltas (limite: 25%)</th>
+                                    <th></th>
+                                    <th>Notas (base 10)</th>
+                                    <th>Notas (base 100)</th>
+                                    <th>Total de notas (base 100)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr>
+                                        <td data-title="Disciplina">
+                                            <label class="control-label">PROJETO FRONT-END</label>
+                                        </td>
+                                        <td><input type="number" name="faltas" id="faltas1" min="0"value="0">
+<script> 
+        function CF1(){
+        document.getElementById("TF1").innerHTML = (document.getElementById("faltas1").value*2.8).toFixed(2) + ("%");
+        }
+</script>
+                                        <button id="Calcularfaltas1" onclick="CF1()">Calcular Faltas</td>
+                                            <td><div class="pie" style="--p:100;--c:darkblue;--b:10px" id="TF1"> 0% </div></td>
+                                            <script>
+                                            </script>
+                                        <td><input type="checkbox" id="PA1" value="SIM"><p>Projeto Aplicado</p><BR>
+                                        <td>AP1: <input type="number" id="AP11" value="0" min="0" max="10">
+                                    <br>AP2: <input type="number" id="AP21" value="0" min="0" max="10">
+                                    <br>AC: <input type="number" id="AC1" value="0" min="0" max="10">
+                                    <br>AS:  <input type="number" id="AS1" min="0" max="10">
+                                    <br><button id="DOIT1" onclick="atualizarLista()">Calcular notas</td>
+                                    <td data-title="Notas">
+                                        <ul id="materia1">
+                                            <br>
+                                            <br>
+                                            <li id="newAP11"></li>
+                                            <br>
+                                            <br>
+                                            <li id="newAP21"></li>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <li id="newAC1"></li>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <li id="newAS1"></li>
+                                        </ul>
+                                        <script>
+                                            function atualizarLista() {
+                                                var cb1 = document.getElementById("PA1");
+                                                if (cb1.checked == false) {
+                                                    document.getElementById("newAP11").innerHTML = document.getElementById('AP11').value*4;
+                                                    document.getElementById("newAP21").innerHTML = document.getElementById('AP21').value*4;
+                                                    document.getElementById("newAC1").innerHTML = document.getElementById('AC1').value*2;
+                                                    document.getElementById("newAS1").innerHTML = document.getElementById('AS1').value*4;
+                                                    if ((document.getElementById('AP11').value*4) + (document.getElementById('AP21').value*4) + (document.getElementById('AC1').value*2) >= 70 || (document.getElementById('AS1').value == 0)){
+                                                        document.getElementById("grandTotal1").innerHTML = ((document.getElementById('AP11').value*4) + (document.getElementById('AP21').value*4) + (document.getElementById('AC1').value*2)).toFixed(2);
+                                                    }
+                                                    else {
+                                                        if (document.getElementById('AP11').value>=document.getElementById('AP21').value){
+                                                            document.getElementById("grandTotal1").innerHTML = ((document.getElementById('AP11').value*4) + (document.getElementById('AS1').value*4) + (document.getElementById('AC1').value*2)).toFixed(2);
+                                                        }
+                                                        else {
+                                                            document.getElementById("grandTotal1").innerHTML = ((document.getElementById('AP21').value*4) + (document.getElementById('AS1').value*4) + (document.getElementById('AC1').value*2)).toFixed(2);
+                                                        }
+                                                }
+                                                }
+                                                else {
+                                                    document.getElementById("newAP11").innerHTML = document.getElementById('AP11').value*4;
+                                                    document.getElementById("newAP21").innerHTML = document.getElementById('AP21').value*2;
+                                                    document.getElementById("newAC1").innerHTML = document.getElementById('AC1').value*4;
+                                                    document.getElementById("newAS1").innerHTML = document.getElementById('AS1').value*4;
+                                                    if ((document.getElementById('AP11').value*4) + (document.getElementById('AP21').value*2) + (document.getElementById('AC1').value*4) > 70 || document.getElementById("AS1").value==0){
+                                                        document.getElementById("grandTotal1").innerHTML = ((document.getElementById('AP11').value*4) + (document.getElementById('AP21').value*2) + (document.getElementById('AC1').value*4)).toFixed(2);
+                                                    }
+                                                    else {
+                                                            document.getElementById("grandTotal1").innerHTML = ((document.getElementById('AS1').value*4) + (document.getElementById('AP21').value*2) + (document.getElementById('AC1').value*4)).toFixed(2);
+                                                }
+
+                                            }
+                                            }
+                                        </script>
+                                    </td>
+                                    <td><div class="pie" style="--p:100;--c:darkblue;--b:10px" id="grandTotal1">0</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-title="Disciplina">
+                                            <label class="control-label">DESIGN GRÁFICO E USER EXPERIENCE</label>
+                                        </td>
+                                        <td><input type="number" name="faltas" id="faltas2" min="0"value="0">
+<script> 
+        function CF2(){
+        document.getElementById("TF2").innerHTML = (document.getElementById("faltas2").value*2.8).toFixed(2) + ("%");
+        }
+</script>
+                                        <button id="Calcularfaltas2" onclick="CF2()">Calcular Faltas</td>
+                                            <td><div class="pie" style="--p:100;--c:darkblue;--b:10px" id="TF2"> 0% </div></td>
+                                        <td><input type="checkbox" id="PA2" value="PA2"><p>Projeto Aplicado</p><BR>
+                                        <td>AP1: <input type="number" id="AP12" value="0" min="0" max="10">
+                                        <br>AP2: <input type="number" id="AP22" value="0" min="0" max="10">
+                                        <br>AC: <input type="number" id="AC2" value="0" min="0" max="10">
+                                        <br>AS:  <input type="number" id="AS2" min="0" max="10">
+                                        <br><button id="DOIT2" onclick="atualizarLista2()">Calcular notas</td>
+                                        <td data-title="Notas">
+                                        <ul id="materia2">
+                                            <br>
+                                            <br>
+                                            <li id="newAP12"></li>
+                                            <br>
+                                            <br>
+                                            <li id="newAP22"></li>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <li id="newAC2"></li>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <li id="newAS2"></li>
+                                        </ul>
+                                        <script>
+                                            function atualizarLista2() {
+                                                var cb2 = document.getElementById("PA2");
+                                                if (cb2.checked == false) {
+                                                    document.getElementById("newAP12").innerHTML = document.getElementById('AP12').value*4;
+                                                    document.getElementById("newAP22").innerHTML = document.getElementById('AP22').value*4;
+                                                    document.getElementById("newAC2").innerHTML = document.getElementById('AC2').value*2;
+                                                    document.getElementById("newAS2").innerHTML = document.getElementById('AS2').value*4;
+                                                    if ((document.getElementById('AP12').value*4) + (document.getElementById('AP22').value*4) + (document.getElementById('AC2').value*2) > 70 || document.getElementById("AS2").value==0){
+                                                        document.getElementById("grandTotal2").innerHTML = ((document.getElementById('AP12').value*4) + (document.getElementById('AP22').value*4) + (document.getElementById('AC2').value*2)).toFixed(2);
+                                                    }
+                                                    else {
+                                                        if (document.getElementById('AP12').value>=document.getElementById('AP22').value){
+                                                            document.getElementById("grandTotal2").innerHTML = ((document.getElementById('AP12').value*4) + (document.getElementById('AS2').value*4) + (document.getElementById('AC2').value*2)).toFixed(2);
+                                                        }
+                                                        else {
+                                                            document.getElementById("grandTotal2").innerHTML = ((document.getElementById('AP22').value*4) + (document.getElementById('AS2').value*4) + (document.getElementById('AC2').value*2)).toFixed(2);
+                                                        }
+                                                }
+                                            
+                                                }
+                                                else {
+                                                    document.getElementById("newAP12").innerHTML = document.getElementById('AP12').value*4;
+                                                    document.getElementById("newAP22").innerHTML = document.getElementById('AP22').value*2;
+                                                    document.getElementById("newAC2").innerHTML = document.getElementById('AC2').value*4;
+                                                    document.getElementById("newAS2").innerHTML = document.getElementById('AS2').value*4;
+                                                    if ((document.getElementById('AP12').value*4) + (document.getElementById('AP22').value*2) + (document.getElementById('AC2').value*4) > 70 || document.getElementById("AS2").value==0){
+                                                        document.getElementById("grandTotal2").innerHTML = ((document.getElementById('AP12').value*4) + (document.getElementById('AP22').value*2) + (document.getElementById('AC2').value*4)).toFixed(2);
+                                                    }
+                                                    else {
+                                                            document.getElementById("grandTotal2").innerHTML = ((document.getElementById('AS2').value*4) + (document.getElementById('AP22').value*2) + (document.getElementById('AC2').value*4)).toFixed(2);
+                                                }
+
+                                            }
+                                            }
+                                        </script>
+                                        </td>
+                                    <td><div class="pie" style="--p:100;--c:darkblue;--b:10px" id="grandTotal2">0</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-title="Disciplina">
+                                            <label class="control-label">DESENVOLVIMENTO WEB</label>
+                                        </td>
+                                        <td><input type="number" name="faltas" id="faltas3" min="0"value="0">
+<script> 
+        function CF3(){
+        document.getElementById("TF3").innerHTML = (document.getElementById("faltas3").value *2.8).toFixed(2) + ("%");
+        }
+</script>
+                                        <button id="Calcularfaltas3" onclick="CF3()">Calcular Faltas</td>
+                                            <td><div class="pie" style="--p:100;--c:darkblue;--b:10px" id="TF3"> 0% </div></td>
+                                        <td><input type="checkbox" id="PA3" value="SIM"><p>Projeto Aplicado</p><BR>
+                                        <td>AP1: <input type="number" id="AP13" value="0" min="0" max="10">
+                                        <br>AP2: <input type="number" id="AP23" value="0" min="0" max="10">
+                                        <br>AC: <input type="number" id="AC3" value="0" min="0" max="10">
+                                        <br>AS:  <input type="number" id="AS3" min="0" max="10">
+                                        <br><button id="DOIT3" onclick="atualizarLista3()">Calcular notas</td>
+                                        <td data-title="Notas">
+                                        <ul id="materia3">
+                                            <br>
+                                            <br>
+                                            <li id="newAP13"></li>
+                                            <br>
+                                            <br>
+                                            <li id="newAP23"></li>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <li id="newAC3"></li>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <li id="newAS3"></li>
+                                        </ul>
+                                        <script>
+                                            function atualizarLista3() {
+                                                var cb3 = document.getElementById("PA3");
+                                                if (cb3.checked == false) {
+                                                    document.getElementById("newAP13").innerHTML = document.getElementById('AP13').value*4;
+                                                    document.getElementById("newAP23").innerHTML = document.getElementById('AP23').value*4;
+                                                    document.getElementById("newAC3").innerHTML = document.getElementById('AC3').value*2;
+                                                    document.getElementById("newAS3").innerHTML = document.getElementById('AS3').value*4;
+                                                    if ((document.getElementById('AP13').value*4) + (document.getElementById('AP23').value*4) + (document.getElementById('AC3').value*2) > 70 || document.getElementById("AS3").value==0){
+                                                        document.getElementById("grandTotal3").innerHTML = ((document.getElementById('AP13').value*4) + (document.getElementById('AP23').value*4) + (document.getElementById('AC3').value*2)).toFixed(2);
+                                                    }
+                                                    else {
+                                                        if (document.getElementById('AP13').value>=document.getElementById('AP23').value){
+                                                            document.getElementById("grandTotal3").innerHTML = ((document.getElementById('AP13').value*4) + (document.getElementById('AS3').value*4) + (document.getElementById('AC3').value*2)).toFixed(2);
+                                                        }
+                                                        else {
+                                                            document.getElementById("grandTotal3").innerHTML = ((document.getElementById('AP23').value*4) + (document.getElementById('AS3').value*4) + (document.getElementById('AC3').value*2)).toFixed(2);
+                                                        }
+                                                }
+                                            
+                                                }
+                                                else {
+                                                    document.getElementById("newAP13").innerHTML = document.getElementById('AP13').value*4;
+                                                    document.getElementById("newAP23").innerHTML = document.getElementById('AP23').value*2;
+                                                    document.getElementById("newAC3").innerHTML = document.getElementById('AC3').value*4;
+                                                    document.getElementById("newAS3").innerHTML = document.getElementById('AS3').value*4;
+                                                    if ((document.getElementById('AP13').value*4) + (document.getElementById('AP23').value*2) + (document.getElementById('AC3').value*4) > 70 || document.getElementById("AS3").value==0){
+                                                        document.getElementById("grandTotal3").innerHTML = ((document.getElementById('AP13').value*4) + (document.getElementById('AP23').value*2) + (document.getElementById('AC3').value*4)).toFixed(2);
+                                                    }
+                                                    else {
+                                                            document.getElementById("grandTotal3").innerHTML = ((document.getElementById('AS3').value*4) + (document.getElementById('AP23').value*2) + (document.getElementById('AC3').value*4)).toFixed(2);
+                                                }
+
+                                            }
+                                            }
+                                        </script>
+                                        </td>
+                                    <td><div class="pie" style="--p:100;--c:darkblue;--b:10px" id="grandTotal3">0</div></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td data-title="Disciplina">
+                                            <label class="control-label">MÉTODOS ÁGEIS DE DESENVOLVIMENTO DE SOFTWARE</label>
+                                        </td>
+                                        <td><input type="number" name="faltas" id="faltas4" min="0"value="0">
+<script> 
+        function CF4(){
+        document.getElementById("TF4").innerHTML = (document.getElementById("faltas4").value *2.8).toFixed(2) + ("%");
+        }
+</script>
+                                        <button id="Calcularfaltas4" onclick="CF4()">Calcular Faltas</td>
+                                            <td><div class="pie" style="--p:100;--c:darkblue;--b:10px" id="TF4"> 0% </div></td>
+                                        <td><input type="checkbox" id="PA4" value="SIM"><p>Projeto Aplicado</p><BR>
+                                        <td>AP1: <input type="number" id="AP14" value="0" min="0" max="10">
+                                            <br>AP2: <input type="number" id="AP24" value="0" min="0" max="10">
+                                            <br>AC: <input type="number" id="AC4" value="0" min="0" max="10">
+                                            <br>AS:  <input type="number" id="AS4" min="0" max="10">
+                                            <br><button id="DOIT4" onclick="atualizarLista4()">Calcular notas</td>
+                                            <td data-title="Notas">
+                                            <ul id="materia4">
+                                                <br>
+                                                <br>
+                                                <li id="newAP14"></li>
+                                                <br>
+                                                <br>
+                                                <li id="newAP24"></li>
+                                                <br>
+                                                <br>
+                                                <br>
+    
+                                                <li id="newAC4"></li>
+                                                <br>
+                                                <br>
+                                                <br>    
+                                                <li id="newAS4"></li>
+                                            </ul>
+                                            <script>
+                                                function atualizarLista4() {
+                                                    var cb4 = document.getElementById("PA4");
+                                                if (cb4.checked == false) {
+                                                    document.getElementById("newAP14").innerHTML = document.getElementById('AP14').value*4;
+                                                    document.getElementById("newAP24").innerHTML = document.getElementById('AP24').value*4;
+                                                    document.getElementById("newAC4").innerHTML = document.getElementById('AC4').value*2;
+                                                    document.getElementById("newAS4").innerHTML = document.getElementById('AS4').value*4;
+                                                    if ((document.getElementById('AP14').value*4) + (document.getElementById('AP24').value*4) + (document.getElementById('AC4').value*2) > 70 || document.getElementById("AS4").value==0){
+                                                        document.getElementById("grandTotal4").innerHTML = ((document.getElementById('AP14').value*4) + (document.getElementById('AP24').value*4) + (document.getElementById('AC4').value*2)).toFixed(2);
+                                                    }
+                                                    else {
+                                                        if (document.getElementById('AP14').value>=document.getElementById('AP24').value){
+                                                            (document.getElementById("grandTotal4").innerHTML = (document.getElementById('AP14').value*4) + (document.getElementById('AS4').value*4) + (document.getElementById('AC4').value*2)).toFixed(2);
+                                                        }
+                                                        else {
+                                                            document.getElementById("grandTotal4").innerHTML = ((document.getElementById('AP24').value*4) + (document.getElementById('AS4').value*4) + (document.getElementById('AC4').value*2)).toFixed(2);
+                                                        }
+                                                }
+                                            
+                                                }
+                                                else {
+                                                    document.getElementById("newAP14").innerHTML = document.getElementById('AP14').value*4;
+                                                    document.getElementById("newAP24").innerHTML = document.getElementById('AP24').value*2;
+                                                    document.getElementById("newAC4").innerHTML = document.getElementById('AC4').value*4;
+                                                    document.getElementById("newAS4").innerHTML = document.getElementById('AS4').value*4;
+                                                    if ((document.getElementById('AP14').value*4) + (document.getElementById('AP24').value*2) + (document.getElementById('AC4').value*4) > 70 || document.getElementById("AS4").value==0){
+                                                        document.getElementById("grandTotal4").innerHTML = ((document.getElementById('AP14').value*4) + (document.getElementById('AP24').value*2) + (document.getElementById('AC4').value*4)).toFixed(2);
+                                                    }
+                                                    else {
+                                                            document.getElementById("grandTotal4").innerHTML = ((document.getElementById('AS4').value*4) + (document.getElementById('AP24').value*2) + (document.getElementById('AC4').value*4)).toFixed(2);
+                                                }
+
+                                            }
+                                            }
+                                            </script>
+                                            </td>
+                                    <td><div class="pie" style="--p:100;--c:darkblue;--b:10px" id="grandTotal4">0</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-title="Disciplina">
+                                            <label class="control-label">ARQUITETURA DE COMPUTADORES</label>
+                                        </td>
+                                        <td><input type="number" name="faltas" id="faltas5" min="0"value="0">
+<script> 
+        function CF5(){
+        document.getElementById("TF5").innerHTML = (document.getElementById("faltas5").value *2.8).toFixed(2) + ("%");
+        }
+</script>
+                                        <button id="Calcularfaltas5" onclick="CF5()">Calcular Faltas</td>
+                                            <td><div class="pie" style="--p:100;--c:darkblue;--b:10px" id="TF5"> 0% </div></td>
+                                        <td><input type="checkbox" id="PA5" value="SIM"><p>Projeto Aplicado</p><BR>
+                                        <td>AP1: <input type="number" id="AP15" value="0" min="0" max="10">
+                                        <br>AP2: <input type="number" id="AP25" value="0" min="0" max="10">
+                                        <br>AC: <input type="number" id="AC5" value="0" min="0" max="10">
+                                        <br>AS:  <input type="number" id="AS5" min="0" max="10">
+                                        <br><button id="DOIT3" onclick="atualizarLista5()">Calcular notas</td>
+                                        <td data-title="Notas">
+                                        <ul id="materia5">
+                                            <br>
+                                            <br>
+                                            <li id="newAP15"></li>
+                                            <br>
+                                            <br>
+                                            <li id="newAP25"></li>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <li id="newAC5"></li>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <li id="newAS5"></li>
+                                        </ul>
+                                        <script>
+                                            function atualizarLista5() {
+                                                var cb5 = document.getElementById("PA5");
+                                                if (cb5.checked == false) {
+                                                    document.getElementById("newAP15").innerHTML = document.getElementById('AP15').value*4;
+                                                    document.getElementById("newAP25").innerHTML = document.getElementById('AP25').value*4;
+                                                    document.getElementById("newAC5").innerHTML = document.getElementById('AC5').value*2;
+                                                    document.getElementById("newAS5").innerHTML = document.getElementById('AS5').value*4;
+                                                    if ((document.getElementById('AP15').value*4) + (document.getElementById('AP25').value*4) + (document.getElementById('AC5').value*2) > 70 || document.getElementById("AS5").value==0){
+                                                        document.getElementById("grandTotal5").innerHTML = ((document.getElementById('AP15').value*4) + (document.getElementById('AP25').value*4) + (document.getElementById('AC5').value*2)).toFixed(2);
+                                                    }
+                                                    else {
+                                                        if (document.getElementById('AP15').value>=document.getElementById('AP25').value){
+                                                            document.getElementById("grandTotal5").innerHTML = ((document.getElementById('AP15').value*4) + (document.getElementById('AS5').value*4) + (document.getElementById('AC5').value*2)).toFixed(2);
+                                                        }
+                                                        else {
+                                                            document.getElementById("grandTotal5").innerHTML = ((document.getElementById('AP25').value*4) + (document.getElementById('AS5').value*4) + (document.getElementById('AC5').value*2)).toFixed(2);
+                                                        }
+                                                }
+                                            
+                                                }
+                                                else {
+                                                    document.getElementById("newAP15").innerHTML = document.getElementById('AP15').value*4;
+                                                    document.getElementById("newAP25").innerHTML = document.getElementById('AP25').value*2;
+                                                    document.getElementById("newAC5").innerHTML = document.getElementById('AC5').value*4;
+                                                    document.getElementById("newAS5").innerHTML = document.getElementById('AS5').value*4;
+                                                    if ((document.getElementById('AP15').value*4) + (document.getElementById('AP25').value*2) + (document.getElementById('AC5').value*4) > 70 || document.getElementById("AS5").value==0){
+                                                        document.getElementById("grandTotal5").innerHTML = ((document.getElementById('AP15').value*4) + (document.getElementById('AP25').value*2) + (document.getElementById('AC5').value*4)).toFixed(2);
+                                                    }
+                                                    else {
+                                                            document.getElementById("grandTotal5").innerHTML = ((document.getElementById('AS5').value*4) + (document.getElementById('AP25').value*2) + (document.getElementById('AC5').value*4)).toFixed(2);
+                                                }
+
+                                            }
+                                            }
+                                        </script>
+                                        </td>
+                                    <td><div class="pie" style="--p:100;--c:darkblue;--b:10px" id="grandTotal5">0</div></td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group pull-right">
+                <a class="btn btn-default hidden-print" href="#" onclick="window.print();return false;">Imprimir</a>
+            </div>
+</div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="/sianet/Scripts/Menu.js"></script>
+    <script src="/sianet/Scripts/AjaxFormResult.js"></script>
+
+    <script nonce="sha256-89EFA17361E061D4870465A2334044D67B6AFFE7DD0CBC59CEABB8E55ADD5058">
+        $(document).ready(function () {
+
+            $(".img-svg").each(function () {
+                fetchSvg(this);
+            });
+
+            $('#menu_usuario').hide();
+            $('#menu_notificacoes').hide();
+
+            $(document).click(function () {
+                $('#menu_usuario').fadeOut();
+                $('#menu_notificacoes').fadeOut();
+            });
+            $('.icone-usuario').click(function (event) {
+                $('#menu_usuario').fadeToggle();
+                event.stopPropagation();
+            });
+
+            $('#menu_usuario', '#menu_usuario>div').click(function (event) {
+                event.stopPropagation();
+            });
+
+            $('#botao_notificacoes').click(function (event) {
+                $('#menu_notificacoes').fadeToggle();
+                event.stopPropagation();
+            });
+
+            $('#botao_menu').click(function () {
+
+                let larguraDaTela = $(window).width();
+
+                if (larguraDaTela < 768) {
+
+
+
+                    $("#botao_menu").animate({
+                        opacity: 0,
+                    }, 'fast', function () {
+                        $('#botao_menu').toggleClass('menu-ativado');
+                    });
+
+                    $('#botao_menu').animate({ opacity: '1' }, 'slow');
+
+
+                    $('#menu').slideToggle();
+                    $('#fundo_menu , #area_usuario').fadeToggle('slow');
+                    $('#topo').toggleClass('menu-ativado');
+
+
+
+                } else {
+
+                    $('#menu').slideToggle();
+                    $('#fundo_menu, #elementos_topo').fadeToggle(100);
+                    $('#topo').toggleClass('menu-ativado');
+                }
+
+                $('body').toggleClass('sem-rolagem');
+            });
+
+        });
+
+        var IframeAluno = (function () {
+            var $wrapIframe = $('#wrapIframe'),
+                $iframe = $('#contentIframe'),
+                $content = $('#content');
+
+            return {
+                resetAttributes: function () {
+                    $iframe.css('width', '');
+                    $iframe.css('height', '');
+                    $wrapIframe.css('height', '');
+                    $wrapIframe.css('width', '');
+                },
+                resizeMobile: function () {
+                    // recupera o tamanho da tela do mobile, obedecendo o modo de visualização
+                    var orientationSize = getOrientationSize(),
+                        largura = getIframeWidth();
+
+                    $iframe.css('width', (largura > orientationSize) ? largura : orientationSize);
+
+                    $wrapIframe.css('height', $iframe.height());
+                    $wrapIframe.css('width', $iframe.width());
+                },
+                resizeDesktop: function () {
+                    var body = getIframeBody(),
+                        largura;
+
+                    // no desktop o iframe deve ter por base o tamanho disponível no content,
+                    // a não ser que o tamanho do iframe seja maior que o tamanho do content
+                    $wrapIframe.css('height', body.scrollHeight > $content.height() ? body.scrollHeight : $content.height());
+                    $wrapIframe.css('width', $content.width());
+
+                    // recuera o width, após o wrapIframe ser definido.
+                    largura = getIframeWidth();
+                    $iframe.css('width', (largura > $iframe.width()) ? largura : $iframe.width());
+                },
+                resizeIframe: function () {
+                    var body = getIframeBody();
+
+                    $("#content").removeClass('has-iframe');
+                    if ($iframe.length) {
+                        $("#content").addClass('has-iframe');
+                    } else {
+                        return;
+                    }
+
+                    this.resetAttributes();
+
+                    $iframe.css('height', body.scrollHeight);
+
+                    if ($('body').hasClass('mobileNavBar')) {
+                        this.resizeMobile();
+                    } else {
+                        this.resizeDesktop();
+                    }
+
+                    $wrapIframe.css('overflow-y', 'hidden');
+                },
+                refreshWindowSize: function () {
+                    var windowHeight = $(window).height(),
+                        headerHeight = 90,
+                        contentHeight = windowHeight - headerHeight,
+                        headerLineHeight = 2,
+                        menuHeight;
+
+                    // Visão mobile, com o menu oculto
+                    if ($("#toggle").is(':visible')) {
+                        menuHeight = windowHeight;
+
+                        // Caso ainda não tenha setado o estilo mobile
+                        if ($("body").hasClass("desktopNavBarPadding")) {
+                            $("body").addClass("mobileNavBar");
+                            $("body").removeClass("desktopNavBarPadding");
+                            $("#navbar").removeClass("navbar navbar-fixed-top");
+                        }
+
+                        // Inclui o height para que o content gere scroll em dispositivos moveis
+                        $("#content").css("height", contentHeight);
+
+                    } else {
+                        menuHeight = contentHeight;
+
+                        // Caso esteja no estilo mobile
+                        if ($("body").hasClass("mobileNavBar")) {
+                            $("body").addClass("desktopNavBarPadding");
+                            $("body").removeClass("mobileNavBar");
+                            $("#navbar").addClass("navbar navbar-fixed-top");
+
+                            // Remove o height para que haja um respiro na página quando se está utilizando computadores ou tablets
+                            $("#content").css("height", "");
+                        }
+                    }
+
+                    $("#menu").css("max-height", menuHeight);
+                }
+            }
+        }());
+
+        //FIX para viewport no WP
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement('style');
+            msViewportStyle.appendChild(document.createTextNode('@-ms-viewport{width:auto!important}'));
+            document.getElementsByTagName('head')[0].appendChild(msViewportStyle);
+        }
+
+        //Evento de click do toggle para exibir/ocultar o menu na visão mobile
+        $('#toggle').on('click', function () {
+            $('.row-offcanvas').toggleClass('active');
+        });
+
+
+        // Quando chamado faz o fetch dos svgs inseridos na página via img.-- >
+        // O chamado é feito a partir do carregamento da própria imagem.-- >
+        //const imagensSvg = document.getElementsByClassName('icone-svg');
+
+        //console.log(imagensSvg);
+
+        //carrega o menu
+        var menu = new MenuSia($('#menu'), '/sianet/Menu', '202201314291');
+
+
+
+        //Controla o tamanho da ta tela
+        $(function () {
+            IframeAluno.refreshWindowSize();
+            IframeAluno.resizeIframe();
+        });
+
+        $(window).resize(function () {
+            IframeAluno.refreshWindowSize();
+            IframeAluno.resizeIframe();
+        });
+
+        $(window).on('orientationchange', IframeAluno.resizeIframe);
+
+        $('iframe#contentIframe').on('load', function () {
+            IframeAluno.resetAttributes();
+
+            IframeAluno.refreshWindowSize();
+            IframeAluno.resizeIframe();
+        });
+
+        Estacio.Util.startLoadingListener($(document));
+
+    </script>
+    <script src="/sianet/Scripts/estacio.iframe.aluno.js"></script>
+    
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-original-title]').tooltip();
+        });
+    </script>
+
+
+
+
+
+
+<div id="inbenta-bot-sdk" class="inbenta brand-ibmec"><div class="inbenta-bot__launcher"><div class="inbenta-bot__launcher__image"></div> <div class="inbenta-bot__launcher__text"></div> <div class="inbenta-bot__launcher__notifications"></div></div> <div class="inbenta-bot"><!----> <div style="display: none;"><!----></div></div></div><iframe tabindex="-1" aria-hidden="true" role="presentation" title="Intentionally blank" name="lpSS_41448900847" id="lpSS_41448900847" src="https://lpcdn.lpsnmedia.net/le_secure_storage/3.21.1.0-release_5088/storage.secure.min.html?loc=https%3A%2F%2Fsia.ibmec.br&amp;site=38015180&amp;env=prod&amp;accdn=accdn.lpsnmedia.net" style="width: 0px; height: 0px; position: absolute; top: -1000px; left: -1000px; display: none;"></iframe><script id="lpSS_46569238744" src="https://lpcdn.lpsnmedia.net/le_secure_storage/3.21.1.0-release_5088/storage.secure.min.js?loc=https%3A%2F%2Fsia.ibmec.br&amp;site=38015180&amp;force=1&amp;env=prod&amp;accdn=accdn.lpsnmedia.net"></script></body></html>
